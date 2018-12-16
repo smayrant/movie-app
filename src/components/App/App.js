@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import '../stylings/App.scss';
-import Header from './Header';
+import './App.scss';
+import Header from '../Header/Header';
+import Searchfield from '../Searchfield/Searchfield';
 
 class App extends Component {
   render() {
     return (
       <div>
         <Header />
+        <Searchfield />
       </div>
     );
   }
