@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { API_KEY, API_URL } from '../../config'
-
+import { API_KEY, API_URL } from '../../config';
+import MovieList from '../MovieList/MovieList';
 
 class Home extends Component {
     state = {
@@ -19,9 +19,7 @@ class Home extends Component {
     render() {
         return (
             <div>
-                {!this.state.movies.results ? <h1>Loading...</h1> : this.state.movies.results.map(function (movie) {
-                    return <h1>{movie.title}</h1>
-                })}
+                <MovieList movies={this.state.movies} />
             </div>
         );
     }
