@@ -9,6 +9,7 @@ class Home extends Component {
         movies: []
     }
     componentDidMount() {
+        // Retrieve the movies that are now playing in theaters from the API
         fetch(`${API_URL}movie/now_playing?api_key=${API_KEY}&language=en-US&page=1`)
             .then(resp => resp.json())
             .then(resp => {
@@ -16,12 +17,12 @@ class Home extends Component {
                     movies: resp
                 })
             })
-
+        // Retrieve the backdrop path for the first movie from the list of trending movies for the day
         fetch(`${API_URL}trending/movie/day?api_key=${API_KEY}`)
             .then(resp => resp.json())
             .then(resp => {
                 this.setState({
-                    heroImageSrc: resp.results[0].backdrop_path
+                    heroImageSrc: resp.results[1].backdrop_path
                 })
             })
 

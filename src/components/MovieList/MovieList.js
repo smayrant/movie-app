@@ -11,8 +11,9 @@ class MovieList extends Component {
                 {!this.props.movies.results ? <h1>Loading...</h1> : this.props.movies.results.map(function (movie) {
                     return (
                         <div key={movie.id}>
-                            <img src={`${IMAGE_BASE_URL}w154/${movie.poster_path}`} alt="" />
-                            <h5 className="movie-title">{movie.title}</h5>
+                            <a href={`/movie/${movie.id}`}><img src={`${IMAGE_BASE_URL}w154/${movie.poster_path}`} alt="" />
+                                <h5 className="movie-title">{movie.title}</h5>
+                            </a>
                         </div>)
                 })}
             </div>
