@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Header from '../Header/Header';
 import Home from '../Home/Home';
 import Movie from '../Movie/Movie';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 class App extends Component {
   render() {
@@ -10,10 +10,10 @@ class App extends Component {
       <BrowserRouter>
         <div className="App">
           <Header />
-          <switch>
-            <Route exact path='/' component={Home} />
+          <Switch>
+            <Route path='/' component={Home} />
             <Route path='/movie/:movieid' component={Movie} />
-          </switch>
+          </Switch>
         </div>
       </BrowserRouter>
     );

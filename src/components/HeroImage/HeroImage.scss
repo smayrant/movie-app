@@ -1,0 +1,34 @@
+.hero-container{
+    margin-top: 0;
+}
+.hero-image-container {
+   background-size: 100%, cover !important;
+  background-position: center !important;
+  width: 100%;
+  height: 51em;
+  background-repeat: no-repeat;
+  position: relative;
+  animation: animateHeroimage 1s;
+}
+
+@keyframes animateHeroimage {
+  from {
+      opacity:0;
+  }
+  to {
+      opacity:1;
+  }
+}
+
+.hero-movie-text-container{
+    color: #fff;
+    text-shadow: 1px 1px #000;
+    max-width: 1280px;
+}
+
+.hero-movie-text{
+    position: absolute;
+    max-width: 1280px;
+    bottom: 0;
+    padding: 3em;
+}
