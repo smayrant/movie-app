@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 import './MovieList.scss';
-import { Carousel, Preloader } from 'react-materialize';
+import { Preloader } from 'react-materialize';
 import { IMAGE_BASE_URL } from '../../config';
 
 class MovieList extends Component {
@@ -13,16 +14,16 @@ class MovieList extends Component {
                         <Preloader flashing size='big' />
                     </div>
                     :
-                    <Carousel>
-                        {this.props.movies.results.map(function (movie) {
-                            return (
-                                <a className="col" href={`/movie/${movie.id}`}>
-                                    <img src={`${IMAGE_BASE_URL}w154/${movie.poster_path}`} alt="" />
-                                    <h5 className="movie-title">{movie.title}</h5>
-                                </a>
-                            )
-                        })}
-                    </Carousel>
+
+                    this.props.movies.results.map(function (movie) {
+                        return (
+                            <NavLink key={movie.id} className="col" to={`/movie/${movie.id}`}>
+                                <img src={`${IMAGE_BASE_URL}w154/${movie.poster_path}`} alt="" />
+                                <h5 className="movie-title">{movie.title}</h5>
+                            </NavLink>
+                        )
+                    })
+
 
                 }
             </div>
