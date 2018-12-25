@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { API_URL, API_KEY, IMAGE_BASE_URL, BACKDROP_SIZE } from '../../config';
+import "./Movie.scss";
 
 class Movie extends Component {
     state = {
@@ -14,21 +15,21 @@ class Movie extends Component {
             }))
     }
     render() {
-        console.log(this.state.movie.backdrop_path)
         return (
-            <div>
-                {!this.state.movie ? <p>Image Loading...</p> :
-                    <div className="movie-container"
+            <div className="movie-container">
+                {!this.state.movie.backdrop_path ? <p>Image Loading...</p> :
+                    <div className="movie-backdrop-container"
                         style={{
                             background:
                                 `linear-gradient(to bottom, rgba(0,0,0,0)
-                39%,rgba(0,0,0,0)
-                41%,rgba(0,0,0,0.65)
-                100%), url(${IMAGE_BASE_URL}${BACKDROP_SIZE}${this.state.movie.backdrop_path}), #1c1c1c`
+                                    39%,rgba(0,0,0,0)
+                                    41%,rgba(0,0,0,0.65)
+                                    100%), url(${IMAGE_BASE_URL}${BACKDROP_SIZE}${this.state.movie.backdrop_path}), #1c1c1c
+                                `
                         }}
                     >
-                        <div className="hero-movie-text-container">
-                            <div className="hero-movie-text">
+                        <div className="movie-text-container">
+                            <div className="movie-text">
                                 <h1>{this.state.movie.original_title}</h1>
                                 <p>{this.state.movie.overview}</p>
                             </div>
