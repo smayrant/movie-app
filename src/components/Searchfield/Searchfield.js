@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
-import './Searchfield.scss'
-import { Input, Row } from 'react-materialize';
+import { Form, FormGroup, FormControl, Button } from 'react-bootstrap';
+import './Searchfield.scss';
 
 class Searchfield extends Component {
     render() {
         return (
             <div className="search-bar-container">
-                <Row>
-                    <Input s={6} placeholder='Search Movies' />
-                </Row>
+                <Form inline>
+                    <FormGroup controlId="formInlineName">
+                        <FormControl type="text" placeholder="Search movies" />
+                    </FormGroup>{' '}
+                    <Button type="submit">Search</Button>
+                </Form>;
             </div>
         );
     }

@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import './MovieList.scss';
-import { Preloader } from 'react-materialize';
 import { IMAGE_BASE_URL } from '../../config';
 
 class MovieList extends Component {
     render() {
         return (
             <div>
-                {/* If there's no movie data props, display the preloader animation, otherwise, display the movie carousel */}
+                {/* If there's no movie data props, display a loading message, otherwise, display the movie carousel */}
                 {!this.props.movies.results ?
                     <div>
-                        <Preloader flashing size='big' />
+                        Movies loading...
                     </div>
                     :
 

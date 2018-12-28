@@ -1,6 +1,6 @@
 import React from 'react';
 import './HeroImage.scss'
-import { IMAGE_BASE_URL, BACKDROP_SIZE } from '../../config';
+import { IMAGE_BASE_URL } from '../../config';
 
 const HeroImage = (props) => {
     return (
@@ -13,7 +13,7 @@ const HeroImage = (props) => {
                             `linear-gradient(to bottom, rgba(0,0,0,0)
                 39%,rgba(0,0,0,0)
                 41%,rgba(0,0,0,0.65)
-                100%), url(${IMAGE_BASE_URL}${BACKDROP_SIZE}${props.heroImageInfo.results[0].backdrop_path}), #1c1c1c`
+                100%), url(${IMAGE_BASE_URL}original${props.heroImageInfo.results[0].backdrop_path}), #1c1c1c`
                     }}
                 >
                     <div className="hero-movie-text-container">

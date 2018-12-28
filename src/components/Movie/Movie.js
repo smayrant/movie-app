@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import { API_URL, API_KEY, IMAGE_BASE_URL, BACKDROP_SIZE } from '../../config';
+import { API_URL, API_KEY, IMAGE_BASE_URL } from '../../config';
 import "./Movie.scss";
 
 class Movie extends Component {
@@ -34,16 +34,16 @@ class Movie extends Component {
                         `linear-gradient(to bottom, rgba(0,0,0,0)
                                     39%,rgba(0,0,0,0)
                                     41%,rgba(0,0,0,0.65)
-                                    100%), url(${IMAGE_BASE_URL}${BACKDROP_SIZE}${this.state.movie.backdrop_path}), #1c1c1c
+                                    100%), url(${IMAGE_BASE_URL}original${this.state.movie.backdrop_path}), #1c1c1c
                                 `
                 }}>
             </div>
 
         const movieDetails = !this.state.movie ? <p>Movie Details Loading... </p> : <div className="movie-text-container">
             <div className="movie-text">
-                <h1>{this.state.movie.original_title}</h1>
-                <h5>Summary:</h5>
-                <p>{this.state.movie.overview}</p>
+                <h1 className="movie-title">{this.state.movie.original_title}</h1>
+                <h5 className="summary-title">Summary:</h5>
+                <p className="summary-text">{this.state.movie.overview}</p>
             </div>
         </div>
 
