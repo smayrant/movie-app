@@ -39,8 +39,9 @@ class Actor extends Component {
         const movieCredits = !this.state.actorMovieCredits ? <p>Movie credits loading...</p> :
             this.state.actorMovieCredits.map(function (credit) {
                 return (
+
                     <NavLink to={`/movie/${credit.id}`} key={credit.id} className="movie-credit-details-container">
-                        <img src={`${IMAGE_BASE_URL}w154${credit.poster_path}`} alt="" />
+                        <img className="actor-image" src={`${IMAGE_BASE_URL}w154${credit.poster_path}`} alt="" />
                     </NavLink>
                 )
             })
@@ -48,6 +49,7 @@ class Actor extends Component {
             <div>
                 {actorImage}
                 {actorDetails}
+                <h5 className="other-roles-title">{this.state.actor.name} has also had roles in: </h5>
                 {movieCredits}
             </div>
         );

@@ -26,6 +26,7 @@ class Movie extends Component {
     }
 
     render() {
+        console.log(this.state.movie)
         const backdrop = !this.state.movie.backdrop_path ? <p>Image Loading...</p> :
             <div className="movie-backdrop-container"
                 style={{
@@ -48,9 +49,15 @@ class Movie extends Component {
 
         const actorDetails = !this.state.castDetails ? <p>Actor Details Loading... </p> :
             this.state.castDetails.map(function (actor) {
-                return <NavLink to={`/actor/${actor.id}`} key={actor.id}>
-                    <p>{actor.name} plays as {actor.character}</p>
-                </NavLink>
+                return <div key={actor.id}>
+                    <NavLink to={`/actor/${actor.id}`}>
+                        <p>{actor.name}</p>
+                        <img src={`${IMAGE_BASE_URL}w154${actor.profile_path}`} alt="" />
+                    </NavLink>
+
+                    <p>plays as {actor.character}</p>
+                    {console.log(actor)}
+                </div>
             })
 
         return (
