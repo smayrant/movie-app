@@ -17,7 +17,7 @@ class MovieList extends Component {
 
                     this.props.movies.results.map(function (movie) {
                         return (
-                            <NavLink key={movie.id} className="col" to={`/movie/${movie.id}`}>
+                            <NavLink key={movie.id} to={`/movie/${movie.id}`}>
                                 <img src={`${IMAGE_BASE_URL}w154/${movie.poster_path}`} alt="" />
                                 <h5 className="movie-title">{movie.title}</h5>
                             </NavLink>
