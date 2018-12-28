@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from '../Header/Header';
 import Home from '../Home/Home';
 import Movie from '../Movie/Movie';
+import Actor from '../Actor/Actor';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 class App extends Component {
@@ -12,7 +13,8 @@ class App extends Component {
           <Header />
           <Switch>
             <Route exact path='/' component={Home} />
-            <Route path='/movie/:movieid' component={Movie} />
+            <Route path='/movie/:movieId' component={Movie} />
+            <Route path='/actor/:actorId' component={Actor} />
           </Switch>
         </div>
       </BrowserRouter>
