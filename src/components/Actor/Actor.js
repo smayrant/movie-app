@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { API_URL, API_KEY, IMAGE_BASE_URL } from '../../config';
+import { Image } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 
 class Actor extends Component {
@@ -41,7 +42,7 @@ class Actor extends Component {
                 return (
 
                     <NavLink to={`/movie/${credit.id}`} key={credit.id} className="movie-credit-details-container">
-                        <img className="actor-image" src={`${IMAGE_BASE_URL}w154${credit.poster_path}`} alt="" />
+                        <Image rounded className="actor-image" src={`${IMAGE_BASE_URL}w154${credit.poster_path}`} alt="" />
                     </NavLink>
                 )
             })
