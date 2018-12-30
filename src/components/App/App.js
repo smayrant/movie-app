@@ -3,6 +3,7 @@ import Header from '../Header/Header';
 import Home from '../Home/Home';
 import Movie from '../Movie/Movie';
 import Actor from '../Actor/Actor';
+import SearchResults from '../SearchResults/SearchResults';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 class App extends Component {
@@ -15,6 +16,7 @@ class App extends Component {
             <Route exact path='/' component={Home} />
             <Route path='/movie/:movieId' component={Movie} />
             <Route path='/actor/:actorId' component={Actor} />
+            <Route path='/search/:query' component={SearchResults} />
           </Switch>
         </div>
       </BrowserRouter>
