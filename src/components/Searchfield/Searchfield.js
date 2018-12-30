@@ -7,29 +7,35 @@ class Searchfield extends Component {
     state = {
         search: ''
     }
-    changed = (e) => {
+
+    retrieveUserInput = (e) => {
         this.setState({
             search: e.target.value
         })
     }
 
-    submitted = (e) => {
-        e.preventDefault()
-        console.log(this.state.search)
+    // once the user submits the form, the API will be searched using their search term, returning the relevant results
+    movieSearch = (e) => {
+        e.preventDefault();
+        fetch(`${API_URL}search/movie?api_key=${API_KEY}&language=en-US&page=1&query=${this.state.search}`)
+            .then(resp => resp.json())
+            .then(data => console.log(data))
     }
 
-    // componendDidMount(){
-    //     fetch(`${API_URL}/search/movie?api_key=${API_KEY}&language=en-US&page=1&query=${this.state.search}`)
+    // componentDidMount() {
+    //     fetch(`${API_URL}search/movie?api_key=${API_KEY}&language=en-US&page=1&query=${this.state.search}`)
+    //         .then(resp => resp.json())
+    //         .then(data => console.log(data))
     // }
 
     render() {
         return (
             <div className="search-bar-container">
-                <Form inline>
+                <Form inline onSubmit={this.movieSearch}>
                     <FormGroup controlId="formInlineName">
-                        <FormControl onChange={this.changed} type="text" placeholder="Search movies" />
+                        <FormControl onChange={this.retrieveUserInput} type="text" placeholder="Search movies" />
+                        <Button className="submit-button" type="submit">Search</Button>
                     </FormGroup>{' '}
-                    <Button onSubmit={this.submitted} className="submit-button" type="submit">Search</Button>
                 </Form>;
             </div>
         );
