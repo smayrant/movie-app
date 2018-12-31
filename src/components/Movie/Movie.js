@@ -26,7 +26,6 @@ class Movie extends Component {
     }
 
     render() {
-        console.log(this.state.movie)
         const backdrop = !this.state.movie.backdrop_path ? <p>Image Loading...</p> :
             <div className="movie-backdrop-container"
                 style={{
@@ -56,7 +55,6 @@ class Movie extends Component {
                     </NavLink>
 
                     <p>plays as {actor.character}</p>
-                    {console.log(actor)}
                 </div>
             })
 

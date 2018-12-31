@@ -1,3 +1,15 @@
+.movie-poster{
+    padding: .5em;
+}
+
 h5{
     color: black;
+    max-width: 154px;
+}
+
+.movie-list-container{
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap;
+    margin: auto !important;
 }

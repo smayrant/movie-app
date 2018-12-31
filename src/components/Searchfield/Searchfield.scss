@@ -3,8 +3,13 @@
     margin: auto 0;
 }
 
-Form{
-    margin: 0 auto;
+.form-container{
+    display: block !important;
+    text-align: center;
+}
+
+.search-input{
+    max-width: 15em !important;
 }
 
 .submit-button{

@@ -33,6 +33,7 @@ class Home extends Component {
             <div>
                 <HeroImage heroImageInfo={this.state.heroImageInfo} />
                 <SearchField />
+                <h3 className="now-playing-header">Now Playing in Theaters</h3>
                 <MovieList movies={this.state.movies} />
             </div>
         );

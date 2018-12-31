@@ -7,7 +7,7 @@ import { IMAGE_BASE_URL } from '../../config';
 class MovieList extends Component {
     render() {
         return (
-            <div>
+            <div className="movie-list-container">
                 {/* If there's no movie data props, display a loading message, otherwise, display the movie carousel */}
                 {!this.props.movies.results ?
                     <div>
@@ -17,10 +17,12 @@ class MovieList extends Component {
 
                     this.props.movies.results.map(function (movie) {
                         return (
-                            <NavLink key={movie.id} to={`/movie/${movie.id}`}>
-                                <Image rounded src={`${IMAGE_BASE_URL}w154/${movie.poster_path}`} alt="" />
-                                <h5 className="movie-title">{movie.title}</h5>
-                            </NavLink>
+                            <div>
+                                <NavLink key={movie.id} to={`/movie/${movie.id}`}>
+                                    <Image className="movie-poster" src={`${IMAGE_BASE_URL}w154/${movie.poster_path}`} alt="" />
+                                    <h5 className="movie-title">{movie.title}</h5>
+                                </NavLink>
+                            </div>
                         )
                     })
 
