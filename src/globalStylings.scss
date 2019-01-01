@@ -1,0 +1,22 @@
+// stylings for the headings of the pages
+.page-heading{
+    text-transform: capitalize;
+    text-align: center;
+}
+
+// stylings for the list of movies returned from the API
+.movie-poster{
+    padding: .5em;
+}
+
+h5{
+    color: black;
+    max-width: 154px;
+}
+
+.movie-list-container{
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap;
+    margin: auto !important;
+}

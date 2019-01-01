@@ -3,6 +3,7 @@ import { API_KEY, API_URL } from '../../config';
 import HeroImage from '../HeroImage/HeroImage';
 import SearchField from '../Searchfield/Searchfield';
 import MovieList from '../MovieList/MovieList';
+import { Link } from 'react-router-dom';
 
 class Home extends Component {
     state = {
@@ -15,7 +16,7 @@ class Home extends Component {
             .then(resp => resp.json())
             .then(resp => {
                 this.setState({
-                    movies: resp
+                    movies: resp.results.slice(0, 6)
                 })
             })
         // Retrieve the list of trending movies for the day from the API
@@ -33,7 +34,7 @@ class Home extends Component {
             <div>
                 <HeroImage heroImageInfo={this.state.heroImageInfo} />
                 <SearchField />
-                <h3 className="now-playing-header">Now Playing in Theaters</h3>
+                <h3 className="now-playing-header">Now Playing in Theaters - <Link to="/nowPlaying">View All</Link></h3>
                 <MovieList movies={this.state.movies} />
             </div>
         );
