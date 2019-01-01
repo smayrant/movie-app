@@ -20,8 +20,8 @@ class Movie extends Component {
         fetch(`${API_URL}movie/${movieId}/credits?api_key=${API_KEY}`)
             .then(resp => resp.json())
             .then(data => this.setState({
-                // place the first 5, main cast members within state
-                castDetails: data.cast.slice(0, 5)
+                // place the first 10, main cast members within state
+                castDetails: data.cast.slice(0, 10)
             }))
     }
 

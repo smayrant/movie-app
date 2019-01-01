@@ -35,6 +35,7 @@ class SearchResults extends Component {
         return (
             <div>
                 <h3 className="search-heading">Search Results For {this.query}</h3>
+                <hr />
                 {renderMovies}
             </div>
         );

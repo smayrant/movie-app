@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { API_KEY, API_URL, IMAGE_BASE_URL } from '../../config';
 import { NavLink } from 'react-router-dom';
-import { Image, Button } from 'react-bootstrap';
+import { Image, Pager, Button } from 'react-bootstrap';
+import './nowPlayingMovies.scss';
+import '../../globalStylings.scss';
 
 class NowPlayingMovies extends Component {
     state = {
@@ -16,7 +18,8 @@ class NowPlayingMovies extends Component {
             .then(resp => resp.json())
             .then(resp => {
                 this.setState({
-                    movies: resp.results
+                    movies: resp.results,
+                    total_pages: resp.total_pages
                 })
             })
 
@@ -25,32 +28,41 @@ class NowPlayingMovies extends Component {
     componentDidMount() {
         this.fetchMovies()
     }
+
     nextPage = () => {
         let { page_num } = this.state;
-        if (this.state.movies) {
+        if (this.state.movies && this.state.page_num <= this.state.total_pages) {
             this.setState({
                 page_num: page_num += 1
-            })
-            this.fetchMovies()
+            }, () => this.fetchMovies())
+        }
+    }
+
+    prevPage = () => {
+        let { page_num } = this.state;
+        if (this.state.movies && this.state.page_num > 1) {
+            this.setState({
+                page_num: page_num -= 1
+            }, () => this.fetchMovies())
         }
     }
     render() {
         return (
-            <div>
+            <div className="now-playing-container">
                 <h3 className="page-heading">movies now playing in theaters</h3>
+                <hr />
                 <div className="movie-list-container">
                     {/* If there's no movie data state, display a loading message, otherwise, display the movie carousel */}
                     {!this.state.movies ?
                         <div>
                             Movies loading...
-                    </div>
+                        </div>
                         :
-
                         this.state.movies.map(function (movie) {
                             return (
                                 <div key={movie.id}>
                                     <NavLink to={`/movie/${movie.id}`}>
-                                        <Image className="movie-poster" src={`${IMAGE_BASE_URL}w154/${movie.poster_path}`} alt="" />
+                                        <Image rounded className="movie-poster" src={`${IMAGE_BASE_URL}w154/${movie.poster_path}`} alt="movie poster" />
                                         <h5 className="movie-title">{movie.title}</h5>
                                     </NavLink>
                                 </div>
@@ -58,8 +70,10 @@ class NowPlayingMovies extends Component {
                         })
                     }
                 </div>
-                <Button>Prev Page</Button>
-                <Button onClick={this.nextPage}>Next Page</Button>
+                <Pager>
+                    <Button className="button now-playing-button" onClick={this.prevPage}>Previous</Button>{' '}
+                    <Button className="button now-playing-button" onClick={this.nextPage}>Next</Button>
+                </Pager>;
             </div>
         );
     }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Form, FormGroup, FormControl, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import '../../globalStylings.scss';
 import './Searchfield.scss';
 
 class Searchfield extends Component {
@@ -22,7 +23,7 @@ class Searchfield extends Component {
                     <FormGroup className="form-container" controlId="formInlineName">
                         <FormControl className="search-input" onChange={this.retrieveUserInput} type="text" placeholder="Search movies" />
                         <Link to={`/search/${this.state.search}`}>
-                            <Button className="submit-button" type="submit">Search</Button>
+                            <Button className="button" type="submit">Search</Button>
                         </Link>
                     </FormGroup>
                 </Form>
