@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { Pager, Button } from 'react-bootstrap';
 import '../../globalStylings.scss';
 
-class NowPlayingMovies extends Component {
+class TopRatedMovies extends Component {
     state = {
         movies: [],
         total_pages: null,
@@ -13,7 +13,7 @@ class NowPlayingMovies extends Component {
 
     fetchMovies = () => {
         // Retrieve the movies that are now playing in theaters from the API
-        fetch(`${API_URL}movie/now_playing?api_key=${API_KEY}&language=en-US&page=${this.state.page_num}`)
+        fetch(`${API_URL}movie/top_rated?api_key=${API_KEY}&language=en-US&page=${this.state.page_num}`)
             .then(resp => resp.json())
             .then(resp => {
                 this.setState({
@@ -47,8 +47,8 @@ class NowPlayingMovies extends Component {
     }
     render() {
         return (
-            <div className="now-playing-container">
-                <h3 className="page-heading">movies now playing in theaters</h3>
+            <div className="view-all-movie-container">
+                <h3 className="page-heading">top rated movies</h3>
                 <hr />
                 <div className="movie-list-container">
                     {/* If there's no movie data state, display a loading message, otherwise, display the movie carousel */}
@@ -78,4 +78,4 @@ class NowPlayingMovies extends Component {
     }
 }
 
-export default NowPlayingMovies;
+export default TopRatedMovies;

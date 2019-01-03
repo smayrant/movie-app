@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { API_KEY, API_URL, IMAGE_BASE_URL } from '../../config';
 import { NavLink } from 'react-router-dom';
 import { Pager, Button } from 'react-bootstrap';
+import './popularMovies.scss';
 import '../../globalStylings.scss';
 
-class NowPlayingMovies extends Component {
+class PopularMovies extends Component {
     state = {
         movies: [],
         total_pages: null,
@@ -13,7 +14,7 @@ class NowPlayingMovies extends Component {
 
     fetchMovies = () => {
         // Retrieve the movies that are now playing in theaters from the API
-        fetch(`${API_URL}movie/now_playing?api_key=${API_KEY}&language=en-US&page=${this.state.page_num}`)
+        fetch(`${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=${this.state.page_num}`)
             .then(resp => resp.json())
             .then(resp => {
                 this.setState({
@@ -78,4 +79,4 @@ class NowPlayingMovies extends Component {
     }
 }
 
-export default NowPlayingMovies;
+export default PopularMovies;

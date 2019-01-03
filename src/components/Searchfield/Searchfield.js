@@ -21,7 +21,7 @@ class Searchfield extends Component {
             <div className="search-bar-container">
                 <Form inline>
                     <FormGroup className="form-container" controlId="formInlineName">
-                        <FormControl className="search-input" onChange={this.retrieveUserInput} type="text" placeholder="Search movies" />
+                        <FormControl className="search-input" onChange={this.retrieveUserInput} type="text" placeholder="Search Movies" />
                         <Link to={`/search/${this.state.search}`}>
                             <Button className="button" type="submit">Search</Button>
                         </Link>

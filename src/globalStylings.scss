@@ -4,9 +4,10 @@
     text-align: center;
 }
 
-// stylings for the list of movies returned from the API
+// stylings for the list of movies returned from the API on all pages
 .movie-poster{
-    padding: .5em;
+    margin: .5em;
+    border-radius: 6px !important;
 }
 
 h5{
@@ -18,7 +19,7 @@ h5{
     display: flex !important;
     flex-direction: row !important;
     flex-wrap: wrap;
-    margin: auto !important;
+    // justify-content: center;
 }
 
 // base stylings for buttons
@@ -27,3 +28,21 @@ h5{
     color: #03D474 !important;
     border: #03D474 1px solid !important;
 }
+
+.pagination-buttons{
+    margin-right: 1em;
+}
+
+// base stylings for the movies on the home page
+.home-movie-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+}
+
+.movie-header{
+    display: flex;
+    justify-content: center;
+}
+

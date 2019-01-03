@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { API_URL, API_KEY, IMAGE_BASE_URL } from '../../config';
 import { Link } from 'react-router-dom';
 import { Image } from 'react-bootstrap';
+import '../../globalStylings.scss';
 
 class SearchResults extends Component {
     state = {
@@ -34,9 +35,11 @@ class SearchResults extends Component {
 
         return (
             <div>
-                <h3 className="search-heading">Search Results For {this.query}</h3>
+                <h3 className="page-heading">Search Results For {this.query}</h3>
                 <hr />
-                {renderMovies}
+                <div className="movie-list-container">
+                    {renderMovies}
+                </div>
             </div>
         );
     }

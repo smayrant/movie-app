@@ -6,6 +6,8 @@ import Actor from '../Actor/Actor';
 import SearchResults from '../SearchResults/SearchResults';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import NowPlayingMovies from '../NowPlayingMovies/NowPlayingMovies';
+import PopularMovies from '../PopularMovies/PopularMovies';
+import TopRatedMovies from '../TopRatedMovies/TopRatedMovies';
 
 class App extends Component {
   render() {
@@ -19,6 +21,8 @@ class App extends Component {
             <Route path='/actor/:actorId' component={Actor} />
             <Route path='/search/:query' component={SearchResults} />
             <Route path='/nowPlaying' component={NowPlayingMovies} />
+            <Route path='/popular' component={PopularMovies} />
+            <Route path='/topRated' component={TopRatedMovies} />
           </Switch>
         </div>
       </BrowserRouter>
