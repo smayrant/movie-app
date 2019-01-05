@@ -5,6 +5,7 @@ import SearchField from '../Searchfield/Searchfield';
 import NowPlayingMovieList from '../NowPlayingMovieList/NowPlayingMovieList';
 import PopularMovieList from '../PopularMovieList/PopularMovieList';
 import TopRatedMovieList from '../TopRatedMovieList/TopRatedMovieList';
+import UpcomingMoviesList from '../UpcomingMoviesList/UpcomingMoviesList';
 import { Link } from 'react-router-dom';
 import '../../globalStylings.scss';
 
@@ -13,7 +14,8 @@ class Home extends Component {
         heroImageSrc: '',
         nowPlayingMovies: [],
         popularMovies: [],
-        topRatedMovies: []
+        topRatedMovies: [],
+        upcomingMovies: []
     }
 
     componentDidMount() {
@@ -43,6 +45,14 @@ class Home extends Component {
                     topRatedMovies: resp.results.slice(0, 6)
                 })
             })
+        // Retrieve the upcoming movies from the API
+        fetch(`${API_URL}movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`)
+            .then(resp => resp.json())
+            .then(resp => {
+                this.setState({
+                    upcomingMovies: resp.results.slice(0, 6)
+                })
+            })
 
         // Retrieve the list of trending movies for the day from the API
         fetch(`${API_URL}trending/movie/day?api_key=${API_KEY}`)
@@ -70,6 +80,10 @@ class Home extends Component {
                 <div className="home-movie-container">
                     <h3 className="movie-header">Top Rated - <Link to="/topRated">View All</Link></h3>
                     <TopRatedMovieList movies={this.state.topRatedMovies} />
+                </div>
+                <div className="home-movie-container">
+                    <h3 className="movie-header">Upcoming - <Link to="/upcoming">View All</Link></h3>
+                    <UpcomingMoviesList movies={this.state.upcomingMovies} />
                 </div>
             </div>
         );

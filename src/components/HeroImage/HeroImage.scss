@@ -9,6 +9,7 @@
   background-repeat: no-repeat;
   position: relative;
   animation: animateHeroimage 1s;
+  object-fit: contain !important;
 }
 
 @keyframes animateHeroimage {

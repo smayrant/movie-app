@@ -1,6 +1,7 @@
 .search-bar-container{
     background-color: #1c1c1c;
     margin: auto 0;
+    padding: 1em;
 }
 
 .form-container{
@@ -9,6 +10,8 @@
 }
 
 .search-input{
-    max-width: 15em !important;
+    max-width: 29em !important;
+    width: 100% !important;
+    margin-right: .9em;
 }
 

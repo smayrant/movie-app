@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 import Home from '../Home/Home';
 import Movie from '../Movie/Movie';
 import Actor from '../Actor/Actor';
@@ -8,6 +9,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import NowPlayingMovies from '../NowPlayingMovies/NowPlayingMovies';
 import PopularMovies from '../PopularMovies/PopularMovies';
 import TopRatedMovies from '../TopRatedMovies/TopRatedMovies';
+import UpcomingMovies from '../UpcomingMovies/UpcomingMovies';
 
 class App extends Component {
   render() {
@@ -23,7 +25,9 @@ class App extends Component {
             <Route path='/nowPlaying' component={NowPlayingMovies} />
             <Route path='/popular' component={PopularMovies} />
             <Route path='/topRated' component={TopRatedMovies} />
+            <Route path='/upcoming' component={UpcomingMovies} />
           </Switch>
+          <Footer />
         </div>
       </BrowserRouter>
     );
