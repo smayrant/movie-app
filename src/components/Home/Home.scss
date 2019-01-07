@@ -2,3 +2,19 @@
     display: flex;
     justify-content: center;
 }  
+
+.now-playing-movie-container{
+    margin-top: 2.5em;
+}
+
+hr{
+	border-top: 1px solid #8c8b8b;
+	border-bottom: 1px solid #000;
+}
+hr:after {
+	content: '';
+	display: block;
+	margin-top: 2px;
+	border-top: 1px solid #8c8b8b;
+	border-bottom: 1px solid #000;
+}

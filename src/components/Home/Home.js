@@ -8,6 +8,7 @@ import TopRatedMovieList from '../TopRatedMovieList/TopRatedMovieList';
 import UpcomingMoviesList from '../UpcomingMoviesList/UpcomingMoviesList';
 import { Link } from 'react-router-dom';
 import '../../globalStylings.scss';
+import './home.scss';
 
 class Home extends Component {
     state = {
@@ -69,21 +70,25 @@ class Home extends Component {
             <div>
                 <HeroImage heroImageInfo={this.state.heroImageInfo} />
                 <SearchField />
-                <div className="home-movie-container">
-                    <h3 className="movie-header">Now Playing in Theaters - <Link to="/nowPlaying">View All</Link></h3>
+                <div className="home-movie-container now-playing-movie-container">
+                    <h3 className="movie-header">Now Playing in Theaters - <Link className="link" to="/nowPlaying">View All</Link></h3>
                     <NowPlayingMovieList movies={this.state.nowPlayingMovies} />
+                    <br />
                 </div>
                 <div className="home-movie-container">
-                    <h3 className="movie-header">Most Popular - <Link to="/popular">View All</Link></h3>
+                    <h3 className="movie-header">Most Popular - <Link className="link" to="/popular">View All</Link></h3>
                     <PopularMovieList movies={this.state.popularMovies} />
+                    <hr />
                 </div>
                 <div className="home-movie-container">
-                    <h3 className="movie-header">Top Rated - <Link to="/topRated">View All</Link></h3>
+                    <h3 className="movie-header">Top Rated - <Link className="link" to="/topRated">View All</Link></h3>
                     <TopRatedMovieList movies={this.state.topRatedMovies} />
+                    <hr />
                 </div>
                 <div className="home-movie-container">
-                    <h3 className="movie-header">Upcoming - <Link to="/upcoming">View All</Link></h3>
+                    <h3 className="movie-header">Upcoming - <Link className="link" to="/upcoming">View All</Link></h3>
                     <UpcomingMoviesList movies={this.state.upcomingMovies} />
+                    <hr />
                 </div>
             </div>
         );
