@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { API_KEY, API_URL, IMAGE_BASE_URL } from '../../config';
 import { NavLink } from 'react-router-dom';
-import { Pager, Button } from 'react-bootstrap';
 import './popularMovies.scss';
 import '../../globalStylings.scss';
 
@@ -48,7 +47,7 @@ class PopularMovies extends Component {
     }
     render() {
         return (
-            <div className="now-playing-container">
+            <div className="view-all-movie-container">
                 <h3 className="page-heading">movies now playing in theaters</h3>
                 <hr />
                 <div className="movie-list-container">
@@ -70,10 +69,10 @@ class PopularMovies extends Component {
                         })
                     }
                 </div>
-                <Pager>
-                    <Button className="button pagination-button" onClick={this.prevPage}>Previous</Button>{' '}
-                    <Button className="button pagination-button" onClick={this.nextPage}>Next</Button>
-                </Pager>;
+                <div>
+                    <button className="button pagination-button" onClick={this.prevPage}>Previous</button>{' '}
+                    <button className="button pagination-button" onClick={this.nextPage}>Next</button>
+                </div>;
             </div>
         );
     }

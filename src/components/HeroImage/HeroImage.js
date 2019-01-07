@@ -1,6 +1,7 @@
 import React from 'react';
 import './HeroImage.scss'
 import { IMAGE_BASE_URL } from '../../config';
+import '../../globalStylings.scss';
 
 const HeroImage = (props) => {
     return (
@@ -17,7 +18,7 @@ const HeroImage = (props) => {
                     }}
                 >
                     <div className="hero-movie-text-container">
-                        <div className="hero-movie-text">
+                        <div className=" wrapper hero-movie-text">
                             <h1>{props.heroImageInfo.results[0].original_title}</h1>
                             <p>{props.heroImageInfo.results[0].overview}</p>
                         </div>

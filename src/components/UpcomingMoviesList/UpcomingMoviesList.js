@@ -2,10 +2,11 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { IMAGE_BASE_URL } from '../../config';
 import '../../globalStylings.scss';
+import './upcomingMoviesList.scss';
 
 const UpcomingMovieList = (props) => {
     return (
-        <div className="movie-list-container">
+        <div className="movie-list-container upcoming-movie-list-container">
             {/* If there's no movie data props, display a loading message, otherwise, display the movies */}
             {!props.movies ?
                 <div>

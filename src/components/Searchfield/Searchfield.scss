@@ -1,6 +1,6 @@
 .search-bar-container{
     background-color: #1c1c1c;
-    margin: auto 0;
+    margin: 0 auto !important;
     padding: 1em;
 }
 
@@ -10,8 +10,15 @@
 }
 
 .search-input{
-    max-width: 29em !important;
-    width: 100% !important;
-    margin-right: .9em;
+    width: 70% !important;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
 }
 
+.search-button{
+    font-size: 1.2em;
+    padding: .25em .45em;
+    margin-left: .8em;
+    border-radius: 5px;
+}

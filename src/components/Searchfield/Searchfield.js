@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Form, FormGroup, FormControl, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import '../../globalStylings.scss';
 import './Searchfield.scss';
@@ -19,14 +18,10 @@ class Searchfield extends Component {
     render() {
         return (
             <div className="search-bar-container">
-                <Form inline>
-                    <FormGroup className="form-container" controlId="formInlineName">
-                        <FormControl className="search-input" onChange={this.retrieveUserInput} type="text" placeholder="Search Movies" />
-                        <Link to={`/search/${this.state.search}`}>
-                            <Button className="button" type="submit">Search</Button>
-                        </Link>
-                    </FormGroup>
-                </Form>
+                <input className="search-input" onChange={this.retrieveUserInput} type="text" placeholder="Search Movies" />
+                <Link to={`/search/${this.state.search}`}>
+                    <button className="button search-button" type="submit">Search</button>
+                </Link>
             </div>
         );
     }

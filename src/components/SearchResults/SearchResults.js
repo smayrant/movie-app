@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { API_URL, API_KEY, IMAGE_BASE_URL } from '../../config';
 import { Link } from 'react-router-dom';
-import { Image } from 'react-bootstrap';
 import '../../globalStylings.scss';
 
 class SearchResults extends Component {
@@ -27,7 +26,7 @@ class SearchResults extends Component {
             this.state.movies.map(function (movie) {
                 return (
                     <Link key={movie.id} to={`/movie/${movie.id}`}>
-                        <Image rounded src={`${IMAGE_BASE_URL}w154/${movie.poster_path}`} alt="" />
+                        <img src={`${IMAGE_BASE_URL}w154/${movie.poster_path}`} alt="" />
                         <h5 className="movie-title">{movie.title}</h5>
                     </Link>
                 )

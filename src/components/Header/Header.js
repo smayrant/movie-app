@@ -1,16 +1,16 @@
 import React from 'react';
 import './header.scss';
-import { Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import '../../globalStylings.scss';
 
 const Header = () => {
     return (
         <div className="header">
-            <div className="header-content">
+            <div className="header-content wrapper">
                 <Link to="/">
-                    <Image className="rmdb-logo" src="./images/reactMovie_logo.png" alt="React Movie Logo" />
+                    <img className="rmdb-logo" src="./images/reactMovie_logo.png" alt="React Movie Logo" />
                 </Link>
-                <Image className="tmdb-logo" src="./images/tmdb_logo.png" alt="TMDB Movie Logo" />
+                <img className="tmdb-logo" src="./images/tmdb_logo.png" alt="TMDB Movie Logo" />
             </div>
         </div>
     )
