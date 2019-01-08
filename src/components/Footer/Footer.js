@@ -5,7 +5,13 @@ const Footer = () => {
     return (
         <div className="footer-container">
             <div className="footer-text-container">
+                <div className="footer-logo-container">
+                    <img className="tmdb-logo" src="./images/tmdb_logo.png" alt="TMDB Logo" />
+                </div>
                 <div className="footer-flexbox-container">
+                    <div className="right-footer-content-container">
+                        <img className="tmdb-logo" src="./images/tmdb_logo.png" alt="TMDB Logo" />
+                    </div>
                     <div className="left-footer-content-container">
                         <ul className="footer-list-container">
                             <li className="footer-list-item">now playing in theaters</li>
@@ -13,9 +19,6 @@ const Footer = () => {
                             <li className="footer-list-item">top rated</li>
                             <li className="footer-list-item">upcoming</li>
                         </ul>
-                    </div>
-                    <div className="right-footer-content-container">
-                        <img className="footer-logo" src="./images/reactMovie_logo.png" alt="React Movie Logo" />
                     </div>
                 </div>
                 <div className="footer-copyright-attribution-container">

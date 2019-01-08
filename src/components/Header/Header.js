@@ -10,7 +10,7 @@ const Header = () => {
                 <Link to="/">
                     <img className="rmdb-logo" src="./images/reactMovie_logo.png" alt="React Movie Logo" />
                 </Link>
-                <img className="tmdb-logo" src="./images/tmdb_logo.png" alt="TMDB Movie Logo" />
+                <img className="popcorn-logo" src="./images/popcorn.png" alt="Popcorn Logo" />
             </div>
         </div>
     )

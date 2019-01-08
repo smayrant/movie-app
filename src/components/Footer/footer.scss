@@ -26,14 +26,17 @@
     text-transform: capitalize;
 }
 
+.right-footer-content-container{
+    display: none;
+}
+
 // .left-footer-content-container{
 //     margin-right: auto;
 // }
 
-.footer-logo{
-    height: auto;
-    width: 25em;
-    display: none;
+.tmdb-logo{
+  display: block;
+  margin: 0 auto;
 }
 
 .footer-copyright-attribution-container{
