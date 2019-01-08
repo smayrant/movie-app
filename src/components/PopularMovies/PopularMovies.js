@@ -21,7 +21,7 @@ class PopularMovies extends Component {
                     total_pages: resp.total_pages
                 })
             })
-
+        console.log(this.state.page_num)
     }
 
     componentDidMount() {
@@ -72,7 +72,7 @@ class PopularMovies extends Component {
                 <div>
                     <button className="button pagination-button" onClick={this.prevPage}>Previous</button>{' '}
                     <button className="button pagination-button" onClick={this.nextPage}>Next</button>
-                </div>;
+                </div>
             </div>
         );
     }

@@ -5,19 +5,44 @@ import '../../globalStylings.scss';
 
 class SearchResults extends Component {
     state = {
-        movies: []
+        movies: [],
+        total_pages: null,
+        page_num: 1
     }
 
     query = this.props.match.params.query
-    // Retrieve the queried movies from the API
-    componentDidMount() {
-        fetch(`${API_URL}search/movie?api_key=${API_KEY}&language=en-US&page=1&query=${this.query}`)
+
+    fetchMovies = () => {
+        fetch(`${API_URL}search/movie?api_key=${API_KEY}&language=en-US&page=${this.state.page_num}&query=${this.query}`)
             .then(resp => resp.json())
             .then(data =>
                 this.setState({
-                    movies: data.results
+                    movies: data.results,
+                    total_pages: data.total_pages
                 })
             )
+    }
+    // Retrieve the queried movies from the API
+    componentDidMount() {
+        this.fetchMovies()
+    }
+
+    nextPage = () => {
+        let { page_num } = this.state;
+        if (this.state.movies && this.state.page_num <= this.state.total_pages) {
+            this.setState({
+                page_num: page_num += 1
+            }, () => this.fetchMovies())
+        }
+    }
+
+    prevPage = () => {
+        let { page_num } = this.state;
+        if (this.state.movies && this.state.page_num > 1) {
+            this.setState({
+                page_num: page_num -= 1
+            }, () => this.fetchMovies())
+        }
     }
 
     render() {
@@ -38,6 +63,10 @@ class SearchResults extends Component {
                 <hr />
                 <div className="movie-list-container">
                     {renderMovies}
+                </div>
+                <div>
+                    <button className="button pagination-button" onClick={this.prevPage}>Previous</button>{' '}
+                    <button className="button pagination-button" onClick={this.nextPage}>Next</button>
                 </div>
             </div>
         );
