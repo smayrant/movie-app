@@ -21,7 +21,6 @@
 
 .movie-text-container{
     background: #1c1c1c;
-    max-width: 1280px;
 }
 
 .movie-text{
@@ -33,4 +32,24 @@
 
 .movie-title{
     margin-top: 0;
+}
+
+.actor-details-container{
+    padding: .5em;
+}
+
+.actor-list-container{
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 2em;
+}
+
+.actor-image{
+    border-radius: 6px !important;
+}
+
+.character-text{
+    max-width: 150px;
 }

@@ -50,8 +50,8 @@ class SearchResults extends Component {
         const renderMovies = !this.state.movies ? <div> Movies loading...</div> :
             this.state.movies.map(function (movie) {
                 return (
-                    <Link key={movie.id} to={`/movie/${movie.id}`}>
-                        <img src={`${IMAGE_BASE_URL}w154/${movie.poster_path}`} alt="" />
+                    <Link className="link" key={movie.id} to={`/movie/${movie.id}`}>
+                        <img className="movie-poster" src={`${IMAGE_BASE_URL}w154/${movie.poster_path}`} alt="Movie Poster" />
                         <h5 className="movie-title">{movie.title}</h5>
                     </Link>
                 )
@@ -61,12 +61,12 @@ class SearchResults extends Component {
             <div>
                 <h3 className="page-heading">Search Results For {this.query}</h3>
                 <hr />
-                <div className="movie-list-container">
+                <div className="movie-list-container view-all-movie-container">
                     {renderMovies}
                 </div>
-                <div>
+                <div className="pagination-buttons-container">
                     <button className="button pagination-button" onClick={this.prevPage}>Previous</button>{' '}
-                    <button className="button pagination-button" onClick={this.nextPage}>Next</button>
+                    <button className="button pagination-button next" onClick={this.nextPage}>Next</button>
                 </div>
             </div>
         );

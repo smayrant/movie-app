@@ -59,7 +59,7 @@ class NowPlayingMovies extends Component {
                         this.state.movies.map(function (movie) {
                             return (
                                 <div key={movie.id}>
-                                    <NavLink to={`/movie/${movie.id}`}>
+                                    <NavLink className="link" to={`/movie/${movie.id}`}>
                                         <img className="movie-poster" src={`${IMAGE_BASE_URL}w154/${movie.poster_path}`} alt="movie poster" />
                                         <h5 className="movie-title">{movie.title}</h5>
                                     </NavLink>
@@ -68,9 +68,9 @@ class NowPlayingMovies extends Component {
                         })
                     }
                 </div>
-                <div>
+                <div className="pagination-buttons-container">
                     <button className="button pagination-button" onClick={this.prevPage}>Previous</button>{' '}
-                    <button className="button pagination-button" onClick={this.nextPage}>Next</button>
+                    <button className="button pagination-button next" onClick={this.nextPage}>Next</button>
                 </div>;
             </div>
         );

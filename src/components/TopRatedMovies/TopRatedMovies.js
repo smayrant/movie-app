@@ -68,9 +68,9 @@ class TopRatedMovies extends Component {
                         })
                     }
                 </div>
-                <div>
+                <div className="pagination-buttons-container">
                     <button className="button pagination-button" onClick={this.prevPage}>Previous</button>{' '}
-                    <button className="button pagination-button" onClick={this.nextPage}>Next</button>
+                    <button className="button pagination-button next" onClick={this.nextPage}>Next</button>
                 </div>;
             </div>
         );

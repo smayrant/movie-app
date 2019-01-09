@@ -21,7 +21,6 @@ class PopularMovies extends Component {
                     total_pages: resp.total_pages
                 })
             })
-        console.log(this.state.page_num)
     }
 
     componentDidMount() {
@@ -48,7 +47,7 @@ class PopularMovies extends Component {
     render() {
         return (
             <div className="view-all-movie-container">
-                <h3 className="page-heading">movies now playing in theaters</h3>
+                <h3 className="page-heading">popular movies</h3>
                 <hr />
                 <div className="movie-list-container">
                     {/* If there's no movie data state, display a loading message, otherwise, display the movie carousel */}
@@ -60,7 +59,7 @@ class PopularMovies extends Component {
                         this.state.movies.map(function (movie) {
                             return (
                                 <div key={movie.id}>
-                                    <NavLink to={`/movie/${movie.id}`}>
+                                    <NavLink className="link" to={`/movie/${movie.id}`}>
                                         <img className="movie-poster" src={`${IMAGE_BASE_URL}w154/${movie.poster_path}`} alt="movie poster" />
                                         <h5 className="movie-title">{movie.title}</h5>
                                     </NavLink>
@@ -69,9 +68,9 @@ class PopularMovies extends Component {
                         })
                     }
                 </div>
-                <div>
+                <div className="pagination-buttons-container">
                     <button className="button pagination-button" onClick={this.prevPage}>Previous</button>{' '}
-                    <button className="button pagination-button" onClick={this.nextPage}>Next</button>
+                    <button className="button pagination-button next" onClick={this.nextPage}>Next</button>
                 </div>
             </div>
         );

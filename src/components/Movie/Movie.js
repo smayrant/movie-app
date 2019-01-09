@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { API_URL, API_KEY, IMAGE_BASE_URL } from '../../config';
+import '../../globalStylings.scss';
 import "./Movie.scss";
 
 class Movie extends Component {
@@ -26,6 +27,7 @@ class Movie extends Component {
     }
 
     render() {
+        console.log(this.state.movie)
         const backdrop = !this.state.movie.backdrop_path ? <p>Image Loading...</p> :
             <div className="movie-backdrop-container"
                 style={{
@@ -41,20 +43,21 @@ class Movie extends Component {
         const movieDetails = !this.state.movie ? <p>Movie Details Loading... </p> : <div className="movie-text-container">
             <div className="movie-text">
                 <h1 className="movie-title">{this.state.movie.original_title}</h1>
-                <h5 className="summary-title">Summary:</h5>
+                <p>Rating: {this.state.movie.vote_average}</p>
+                {/* <p>Genre: {this.state.movie.genres}</p> */}
+                <p className="summary-title">Summary:</p>
                 <p className="summary-text">{this.state.movie.overview}</p>
             </div>
         </div>
 
         const actorDetails = !this.state.castDetails ? <p>Actor Details Loading... </p> :
             this.state.castDetails.map(function (actor) {
-                return <div key={actor.id}>
-                    <NavLink to={`/actor/${actor.id}`}>
+                return <div className="actor-details-container" key={actor.id}>
+                    <NavLink className="link" to={`/actor/${actor.id}`}>
                         <p>{actor.name}</p>
-                        <img src={`${IMAGE_BASE_URL}w154${actor.profile_path}`} alt="" />
+                        <img className="actor-image" src={`${IMAGE_BASE_URL}w154${actor.profile_path}`} alt="actor poster" />
                     </NavLink>
-
-                    <p>plays as {actor.character}</p>
+                    <p className="character-text">Plays as {actor.character}</p>
                 </div>
             })
 
@@ -62,7 +65,9 @@ class Movie extends Component {
             <div className="movie-container">
                 {backdrop}
                 {movieDetails}
-                {actorDetails}
+                <div className="actor-list-container">
+                    {actorDetails}
+                </div>
             </div>
         );
     }
