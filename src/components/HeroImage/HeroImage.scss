@@ -2,14 +2,13 @@
     margin-top: 0;
 }
 .hero-image-container {
-   background-size: 100%, cover !important;
+  background-size: cover !important;
   background-position: center !important;
   width: 100%;
-  height: 51em;
+  height: 30vh;
   background-repeat: no-repeat;
   position: relative;
   animation: animateHeroimage 1s;
-  object-fit: contain !important;
 }
 
 @keyframes animateHeroimage {

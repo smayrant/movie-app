@@ -19,8 +19,8 @@ const HeroImage = (props) => {
                 >
                     <div className="hero-movie-text-container">
                         <div className=" wrapper hero-movie-text">
-                            <h1>{props.heroImageInfo.results[0].original_title}</h1>
-                            <p>{props.heroImageInfo.results[0].overview}</p>
+                            <h4>Today's Top Trending Movie</h4>
+                            <h1 className="hero-movie-header">{props.heroImageInfo.results[0].original_title}</h1>
                         </div>
                     </div>
                 </div>}

@@ -38,7 +38,7 @@ class Home extends Component {
                 })
             })
 
-        // Retrieve the popular movies from the API
+        // Retrieve the top rated movies from the API
         fetch(`${API_URL}movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`)
             .then(resp => resp.json())
             .then(resp => {

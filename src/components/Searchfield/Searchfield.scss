@@ -1,7 +1,8 @@
 .search-bar-container{
     background-color: #1c1c1c;
-    margin: 0 auto !important;
+    display: flex;
     padding: 1em;
+    justify-content: center;
 }
 
 .form-container{

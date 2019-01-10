@@ -27,7 +27,6 @@ class Movie extends Component {
             }))
     }
 
-
     render() {
         console.log(this.state.movie)
         const backdrop = !this.state.movie.backdrop_path ? <p>Image Loading...</p> :
@@ -45,16 +44,8 @@ class Movie extends Component {
         const genre = !this.state.movie.genres ? <p>Genres loading</p> : this.state.movie.genres.map(function (genre) {
             return <p key={genre.id}>{genre.name}</p>
         })
-        // const video = !this.state.movie.videos ? <p>nothing</p> : this.state.movie.videos.results.map(function (vid) {
-        //     return (<div key={vid.key}>
-        //         <iframe title={vid.name} width="420" height="315">
-        //             <source src={`https://www.youtube.com/watch?v=${vid.key}`} />
-        //         </iframe>
-        //     </div>)
-        // })
 
-
-
+        // retrieve and return the details for the movie if the movie data has been placed into state
         const movieDetails = !this.state.movie ? <p>Movie Details Loading... </p> : <div className="movie-text-container">
             <div className="movie-text">
                 <h1 className="movie-title">{this.state.movie.original_title}</h1>
@@ -66,6 +57,7 @@ class Movie extends Component {
             </div>
         </div>
 
+        // retrieve and return the details for the cast if the cast data has been placed into state
         const actorDetails = !this.state.castDetails ? <p>Actor Details Loading... </p> :
             this.state.castDetails.map(function (actor) {
                 return <div className="actor-details-container" key={actor.id}>

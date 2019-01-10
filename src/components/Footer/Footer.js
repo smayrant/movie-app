@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../../globalStylings.scss';
 import './footer.scss';
 
 const Footer = () => {
@@ -15,10 +16,10 @@ const Footer = () => {
                     </div>
                     <div className="left-footer-content-container">
                         <ul className="footer-list-container">
-                            <Link to="/nowPlaying"><li className="footer-list-item">now playing in theaters</li></Link>
-                            <Link to="/popular"><li className="footer-list-item">most popular</li></Link>
-                            <Link to="/topRated"><li className="footer-list-item">top rated</li></Link>
-                            <Link to="/upcoming"><li className="footer-list-item">upcoming</li></Link>
+                            <Link className="link" to="/nowPlaying"><li className="footer-list-item">now playing in theaters</li></Link>
+                            <Link className="link" to="/popular"><li className="footer-list-item">most popular</li></Link>
+                            <Link className="link" to="/topRated"><li className="footer-list-item">top rated</li></Link>
+                            <Link className="link" to="/upcoming"><li className="footer-list-item">upcoming</li></Link>
                         </ul>
                     </div>
                 </div>
