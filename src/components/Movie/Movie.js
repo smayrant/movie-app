@@ -9,10 +9,11 @@ class Movie extends Component {
         movie: [],
         castDetails: []
     }
+
     componentDidMount() {
         const movieId = this.props.match.params.movieId;
         // retrieve individual movie details
-        fetch(`${API_URL}movie/${movieId}?api_key=${API_KEY}&language=en-US`)
+        fetch(`${API_URL}movie/${movieId}?api_key=${API_KEY}&language=en-US&append_to_response=videos`)
             .then(resp => resp.json())
             .then(data => this.setState({
                 movie: data
@@ -25,6 +26,7 @@ class Movie extends Component {
                 castDetails: data.cast.slice(0, 10)
             }))
     }
+
 
     render() {
         console.log(this.state.movie)
@@ -39,12 +41,26 @@ class Movie extends Component {
                                 `
                 }}>
             </div>
+        // map over the movie's genres returned from the API
+        const genre = !this.state.movie.genres ? <p>Genres loading</p> : this.state.movie.genres.map(function (genre) {
+            return <p key={genre.id}>{genre.name}</p>
+        })
+        // const video = !this.state.movie.videos ? <p>nothing</p> : this.state.movie.videos.results.map(function (vid) {
+        //     return (<div key={vid.key}>
+        //         <iframe title={vid.name} width="420" height="315">
+        //             <source src={`https://www.youtube.com/watch?v=${vid.key}`} />
+        //         </iframe>
+        //     </div>)
+        // })
+
+
 
         const movieDetails = !this.state.movie ? <p>Movie Details Loading... </p> : <div className="movie-text-container">
             <div className="movie-text">
                 <h1 className="movie-title">{this.state.movie.original_title}</h1>
                 <p>Rating: {this.state.movie.vote_average}</p>
-                {/* <p>Genre: {this.state.movie.genres}</p> */}
+                <p>Genre(s):</p>
+                {genre}
                 <p className="summary-title">Summary:</p>
                 <p className="summary-text">{this.state.movie.overview}</p>
             </div>
