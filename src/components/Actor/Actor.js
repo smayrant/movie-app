@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import '../../globalStylings.scss';
 import './actor.scss';
 import no_image_poster from '../../images/no_image.jpg';
+
 class Actor extends Component {
     state = {
         actor: [],
