@@ -1,7 +1,28 @@
+.actor-image-container{
+  margin: 1em;  
+}
+
 .actor-image{
-    display: block;
+  display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+  width: 67%;
+  height: auto;
   max-width: 300px;
+}
+
+.actor-details-container{
+  background: #1c1c1c;
+  color: #fff;
+  padding: 1em;
+}
+
+.other-roles-title{
+  padding: 1em;
+  margin: 2em 1em !important;
+}
+
+.no-image-poster{
+  width: 154px;
+  height: auto;
 }

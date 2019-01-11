@@ -1,6 +1,6 @@
 import React from 'react';
-import './HeroImage.scss'
 import { IMAGE_BASE_URL } from '../../config';
+import './HeroImage.scss'
 import '../../globalStylings.scss';
 
 const HeroImage = (props) => {
@@ -17,8 +17,8 @@ const HeroImage = (props) => {
                 100%), url(${IMAGE_BASE_URL}original${props.heroImageInfo.results[0].backdrop_path}), #1c1c1c`
                     }}
                 >
-                    <div className="hero-movie-text-container">
-                        <div className=" wrapper hero-movie-text">
+                    <div className="wrapper hero-movie-text-container">
+                        <div className="hero-movie-text">
                             <h4>Today's Top Trending Movie</h4>
                             <h1 className="hero-movie-header">{props.heroImageInfo.results[0].original_title}</h1>
                         </div>

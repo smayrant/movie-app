@@ -50,7 +50,7 @@ class NowPlayingMovies extends Component {
                 <h3 className="page-heading">movies now playing in theaters</h3>
                 <hr />
                 <div className="movie-list-container">
-                    {/* If there's no movie data state, display a loading message, otherwise, display the movie carousel */}
+                    {/* If there's no movie data state, display a loading message, otherwise, display the movies */}
                     {!this.state.movies ?
                         <div>
                             Movies loading...

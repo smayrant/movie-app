@@ -3,7 +3,7 @@ import { API_URL, API_KEY, IMAGE_BASE_URL } from '../../config';
 import { Link } from 'react-router-dom';
 import '../../globalStylings.scss';
 import './actor.scss';
-
+import no_image_poster from '../../images/no_image.jpg';
 class Actor extends Component {
     state = {
         actor: [],
@@ -24,35 +24,49 @@ class Actor extends Component {
             .then(data => this.setState({
                 actorMovieCredits: data.cast.slice(0, 15)
             }))
+
+
     }
     render() {
+        console.log(this.state.actorMovieCredits)
         const actorImage = !this.state.actor ? <p>Image Loading...</p> :
             <div className="actor-image-container">
                 <img className="actor-image" src={`${IMAGE_BASE_URL}w300/${this.state.actor.profile_path}`} alt="Actor" />
             </div>
 
         const actorDetails = !this.state.actor ? <p>Actor details loading...</p> : <div className="actor-details-container wrapper">
-            <h4>{this.state.actor.name}</h4>
-            <h6>Birth date: {this.state.actor.birthday}</h6>
-            <h6>Place of birth: {this.state.actor.place_of_birth}</h6>
+            <h1>{this.state.actor.name}</h1>
+            <h4>Birth date: {this.state.actor.birthday}</h4>
+            <h4>Place of birth: {this.state.actor.place_of_birth}</h4>
             <p>{this.state.actor.biography}</p>
         </div>
 
-        const movieCredits = !this.state.actorMovieCredits ? <p>Movie credits loading...</p> :
-            this.state.actorMovieCredits.map(function (credit) {
+        // if this.state.actorMovieCredits has data, check if the path to the poster is not null and render the image from the API. Otherwise, render the 'no image' poster. If there's no data in state, display a loading message.
+        const image = this.state.actorMovieCredits ? this.state.actorMovieCredits.map(function (credit) {
+            if (credit.poster_path) {
                 return (
                     <Link to={`/movie/${credit.id}`} key={credit.id} className="movie-credit-details-container">
-                        <img className="actor-image" src={`${IMAGE_BASE_URL}w154${credit.poster_path}`} alt="Movie poster" />
+                        <img className="movie-poster" src={`${IMAGE_BASE_URL}w154${credit.poster_path}`} alt="Movie poster" />
                     </Link>
                 )
-            })
+            }
+            else {
+                return (
+                    <Link to={`/movie/${credit.id}`} key={credit.id} className="movie-credit-details-container">
+                        <img className="movie-poster no-image-poster" src={no_image_poster} alt="Movie poster" />
+                    </Link>
+                )
+            }
+        }) : <p>Movies Loading...</p>
 
         return (
             <div>
                 {actorImage}
                 {actorDetails}
-                <h5 className="other-roles-title">{this.state.actor.name} has also had roles in: </h5>
-                {movieCredits}
+                <h3 className="other-roles-title wrapper">{this.state.actor.name} also has roles in: </h3>
+                <div className="movie-list-container">
+                    {image}
+                </div>
             </div>
         );
     }

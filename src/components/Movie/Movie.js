@@ -28,9 +28,8 @@ class Movie extends Component {
     }
 
     render() {
-        console.log(this.state.movie)
         const backdrop = !this.state.movie.backdrop_path ? <p>Image Loading...</p> :
-            <div className="movie-backdrop-container"
+            <div className="hero-image-container"
                 style={{
                     background:
                         `linear-gradient(to bottom, rgba(0,0,0,0)
@@ -40,6 +39,7 @@ class Movie extends Component {
                                 `
                 }}>
             </div>
+
         // map over the movie's genres returned from the API
         const genre = !this.state.movie.genres ? <p>Genres loading</p> : this.state.movie.genres.map(function (genre) {
             return <p key={genre.id}>{genre.name}</p>
