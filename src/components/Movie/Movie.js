@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { API_URL, API_KEY, IMAGE_BASE_URL } from '../../config';
+import no_image_poster from '../../images/no_image.jpg';
 import '../../globalStylings.scss';
 import "./Movie.scss";
 
@@ -28,6 +29,7 @@ class Movie extends Component {
     }
 
     render() {
+        console.log(this.state.movie)
         const backdrop = !this.state.movie.backdrop_path ? <p>Image Loading...</p> :
             <div className="hero-image-container"
                 style={{
@@ -45,10 +47,38 @@ class Movie extends Component {
             return <p key={genre.id}>{genre.name}</p>
         })
 
+
+        // if this.state.castDetails has data, check if the path to the profile is not null and render the image from the API. Otherwise, render the 'no image' poster. If there's no data in state, display a loading message.
+        const actorDetails = this.state.castDetails ? this.state.castDetails.map(function (actor) {
+            if (actor.profile_path) {
+                return (
+                    <div className="individual-actor-details-container" key={actor.id}>
+                        <Link to={`/actor/${actor.id}`} key={actor.id} className="movie-credit-details-container link">
+                            <p className="actor-name">{actor.name}</p>
+                            <img className="actor-poster" src={`${IMAGE_BASE_URL}w154${actor.profile_path}`} alt="Actor poster" />
+                        </Link>
+                        <p className="character-text">Plays as {actor.character}</p>
+                    </div>
+                )
+            }
+            else {
+                return (
+                    <div className="individual-actor-details-container" key={actor.id}>
+                        <Link to={`/actor/${actor.id}`} key={actor.id} className="movie-credit-details-container link">
+                            <p className="actor-name">{actor.name}</p>
+                            <img className="actor-poster no-image-poster" src={no_image_poster} alt="Actor poster" />
+                        </Link>
+                        <p className="character-text">Plays as {actor.character}</p>
+                    </div>
+                )
+            }
+        }) : <p>Actors Loading...</p>
+
         // retrieve and return the details for the movie if the movie data has been placed into state
         const movieDetails = !this.state.movie ? <p>Movie Details Loading... </p> : <div className="movie-text-container">
             <div className="movie-text">
                 <h1 className="movie-title">{this.state.movie.original_title}</h1>
+                <p>Release Date: {this.state.movie.release_date}</p>
                 <p>Rating: {this.state.movie.vote_average}</p>
                 <p>Genre(s):</p>
                 {genre}
@@ -56,18 +86,6 @@ class Movie extends Component {
                 <p className="summary-text">{this.state.movie.overview}</p>
             </div>
         </div>
-
-        // retrieve and return the details for the cast if the cast data has been placed into state
-        const actorDetails = !this.state.castDetails ? <p>Actor Details Loading... </p> :
-            this.state.castDetails.map(function (actor) {
-                return <div className="actor-details-container" key={actor.id}>
-                    <NavLink className="link" to={`/actor/${actor.id}`}>
-                        <p>{actor.name}</p>
-                        <img className="actor-image" src={`${IMAGE_BASE_URL}w154${actor.profile_path}`} alt="actor poster" />
-                    </NavLink>
-                    <p className="character-text">Plays as {actor.character}</p>
-                </div>
-            })
 
         return (
             <div className="movie-container">

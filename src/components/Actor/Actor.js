@@ -35,26 +35,31 @@ class Actor extends Component {
                 <img className="actor-image" src={`${IMAGE_BASE_URL}w300/${this.state.actor.profile_path}`} alt="Actor" />
             </div>
 
-        const actorDetails = !this.state.actor ? <p>Actor details loading...</p> : <div className="actor-details-container wrapper">
-            <h1>{this.state.actor.name}</h1>
-            <h4>Birth date: {this.state.actor.birthday}</h4>
-            <h4>Place of birth: {this.state.actor.place_of_birth}</h4>
-            <p>{this.state.actor.biography}</p>
+        const actorDetails = !this.state.actor ? <p>Actor details loading...</p> : <div className="actor-info-container">
+            <div className="actor-info-text wrapper">
+
+                <h1>{this.state.actor.name}</h1>
+                <h4>Birth date: {this.state.actor.birthday}</h4>
+                <h4>Place of birth: {this.state.actor.place_of_birth}</h4>
+                <p>{this.state.actor.biography}</p>
+            </div>
         </div>
 
         // if this.state.actorMovieCredits has data, check if the path to the poster is not null and render the image from the API. Otherwise, render the 'no image' poster. If there's no data in state, display a loading message.
         const image = this.state.actorMovieCredits ? this.state.actorMovieCredits.map(function (credit) {
             if (credit.poster_path) {
                 return (
-                    <Link to={`/movie/${credit.id}`} key={credit.id} className="movie-credit-details-container">
+                    <Link to={`/movie/${credit.id}`} key={credit.id} className="movie-credit-details-container link">
                         <img className="movie-poster" src={`${IMAGE_BASE_URL}w154${credit.poster_path}`} alt="Movie poster" />
+                        <h5 className="movie-title">{credit.title}</h5>
                     </Link>
                 )
             }
             else {
                 return (
-                    <Link to={`/movie/${credit.id}`} key={credit.id} className="movie-credit-details-container">
+                    <Link to={`/movie/${credit.id}`} key={credit.id} className="movie-credit-details-container link">
                         <img className="movie-poster no-image-poster" src={no_image_poster} alt="Movie poster" />
+                        <h5 className="movie-title">{credit.title}</h5>
                     </Link>
                 )
             }

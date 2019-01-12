@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import tmdb_logo from '../../images/tmdb_logo.png';
 import '../../globalStylings.scss';
 import './footer.scss';
 
@@ -8,11 +9,11 @@ const Footer = () => {
         <div className="footer-container">
             <div className="footer-text-container">
                 <div className="footer-logo-container">
-                    <img className="tmdb-logo" src="./images/tmdb_logo.png" alt="TMDB Logo" />
+                    <img className="tmdb-logo" src={tmdb_logo} alt="TMDB Logo" />
                 </div>
                 <div className="footer-flexbox-container">
                     <div className="right-footer-content-container">
-                        <img className="tmdb-logo" src="./images/tmdb_logo.png" alt="TMDB Logo" />
+                        <img className="tmdb-logo" src={tmdb_logo} alt="TMDB Logo" />
                     </div>
                     <div className="left-footer-content-container">
                         <ul className="footer-list-container">
