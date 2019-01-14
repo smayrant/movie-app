@@ -10,6 +10,12 @@ import NowPlayingMovies from '../NowPlayingMovies/NowPlayingMovies';
 import PopularMovies from '../PopularMovies/PopularMovies';
 import TopRatedMovies from '../TopRatedMovies/TopRatedMovies';
 import UpcomingMovies from '../UpcomingMovies/UpcomingMovies';
+import {
+  CSSTransition,
+  TransitionGroup,
+} from 'react-transition-group';
+import './App.scss';
+
 
 class App extends Component {
   render() {
@@ -17,16 +23,23 @@ class App extends Component {
       <BrowserRouter>
         <div className="App">
           <Header />
-          <Switch>
-            <Route exact path='/' component={Home} />
-            <Route path='/movie/:movieId' component={Movie} />
-            <Route path='/actor/:actorId' component={Actor} />
-            <Route path='/search/:query' component={SearchResults} />
-            <Route path='/nowPlaying' component={NowPlayingMovies} />
-            <Route path='/popular' component={PopularMovies} />
-            <Route path='/topRated' component={TopRatedMovies} />
-            <Route path='/upcoming' component={UpcomingMovies} />
-          </Switch>
+          <Route render={({ location }) => (
+
+            <TransitionGroup>
+              <CSSTransition key={location.key} timeout={{ enter: 1000, exit: 1000 }} classNames={'fade'}>
+                <Switch location={location}>
+                  <Route exact path='/' component={Home} />
+                  <Route path='/movie/:movieId' component={Movie} />
+                  <Route path='/actor/:actorId' component={Actor} />
+                  <Route path='/search/:query' component={SearchResults} />
+                  <Route path='/nowPlaying' component={NowPlayingMovies} />
+                  <Route path='/popular' component={PopularMovies} />
+                  <Route path='/topRated' component={TopRatedMovies} />
+                  <Route path='/upcoming' component={UpcomingMovies} />
+                </Switch>
+              </CSSTransition>
+            </TransitionGroup>
+          )} />
           <Footer />
         </div>
       </BrowserRouter>

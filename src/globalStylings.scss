@@ -99,3 +99,29 @@
       opacity:1;
   }
 }
+
+.page-enter {
+  opacity: 0.01;
+}
+.page-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+.page-exit {
+  opacity: 1;
+}
+.page-exit-active {
+  opacity: 0.01;
+  transition: opacity 500ms ease-in;
+}
+
+.page {
+  height: 100vh;
+  padding: calc(15% + 1.5em) 5% 5%;
+  overflow-y: auto;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
+  transition: transform 1s ease-in-out;
+}
