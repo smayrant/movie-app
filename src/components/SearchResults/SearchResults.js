@@ -30,8 +30,8 @@ class SearchResults extends Component {
     }
 
     scrollToTop = () => {
-        scroll.scrollToTop();
-    };
+        scroll.scrollToTop()
+    }
 
     nextPage = () => {
         let { page_num } = this.state;

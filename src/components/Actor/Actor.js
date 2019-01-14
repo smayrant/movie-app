@@ -80,7 +80,7 @@ class Actor extends Component {
                 {actorImage}
                 {actorDetails}
                 <h3 className="other-roles-title wrapper">{this.state.actor.name} also has roles in: </h3>
-                <div className="movie-list-container">
+                <div className="movie-list-container wrapper">
                     {image}
                 </div>
             </div>

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { API_KEY, API_URL, IMAGE_BASE_URL } from '../../config';
 import { Link } from 'react-router-dom';
 import no_image_poster from '../../images/no_image.jpg';
+import { animateScroll as scroll } from "react-scroll";
 import '../../globalStylings.scss';
 
 class UpcomingMovies extends Component {
@@ -28,12 +29,17 @@ class UpcomingMovies extends Component {
         this.fetchMovies()
     }
 
+    scrollToTop = () => {
+        scroll.scrollToTop();
+    };
+
     nextPage = () => {
         let { page_num } = this.state;
         if (this.state.movies && this.state.page_num <= this.state.total_pages) {
             this.setState({
                 page_num: page_num += 1
             }, () => this.fetchMovies())
+            this.scrollToTop()
         }
     }
 
@@ -43,6 +49,7 @@ class UpcomingMovies extends Component {
             this.setState({
                 page_num: page_num -= 1
             }, () => this.fetchMovies())
+            this.scrollToTop()
         }
     }
     render() {

@@ -1,10 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import tmdb_logo from '../../images/tmdb_logo.png';
+import { animateScroll as scroll } from "react-scroll";
 import '../../globalStylings.scss';
 import './footer.scss';
 
 const Footer = () => {
+    const scrollToTop = () => {
+        scroll.scrollToTop()
+    }
+
     return (
         <div className="footer-container">
             <div className="footer-text-container">
@@ -17,11 +22,11 @@ const Footer = () => {
                     </div>
                     <div className="left-footer-content-container">
                         <ul className="footer-list-container">
-                            <Link className="link" to="/"><li className="footer-list-item">home</li></Link>
-                            <Link className="link" to="/nowPlaying"><li className="footer-list-item">now playing in theaters</li></Link>
-                            <Link className="link" to="/popular"><li className="footer-list-item">most popular</li></Link>
-                            <Link className="link" to="/topRated"><li className="footer-list-item">top rated</li></Link>
-                            <Link className="link" to="/upcoming"><li className="footer-list-item">upcoming</li></Link>
+                            <Link className="link" to="/"><li onClick={scrollToTop} className="footer-list-item">home</li></Link>
+                            <Link className="link" to="/nowPlaying"><li onClick={scrollToTop} className="footer-list-item">now playing in theaters</li></Link>
+                            <Link className="link" to="/popular"><li onClick={scrollToTop} className="footer-list-item">most popular</li></Link>
+                            <Link className="link" to="/topRated"><li onClick={scrollToTop} className="footer-list-item">top rated</li></Link>
+                            <Link className="link" to="/upcoming"><li onClick={scrollToTop} className="footer-list-item">upcoming</li></Link>
                         </ul>
                     </div>
                 </div>
