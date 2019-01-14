@@ -17,6 +17,7 @@ const Footer = () => {
                     </div>
                     <div className="left-footer-content-container">
                         <ul className="footer-list-container">
+                            <Link className="link" to="/"><li className="footer-list-item">home</li></Link>
                             <Link className="link" to="/nowPlaying"><li className="footer-list-item">now playing in theaters</li></Link>
                             <Link className="link" to="/popular"><li className="footer-list-item">most popular</li></Link>
                             <Link className="link" to="/topRated"><li className="footer-list-item">top rated</li></Link>

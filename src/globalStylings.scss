@@ -29,13 +29,19 @@
 }
 
 // stylings for the list of movies returned from the API on all pages
+.movie{
+    margin-bottom: 1.5em;
+}
+
 .movie-poster{
     margin: .5em;
     border-radius: 6px !important;
 }
 
 .movie-title{
-    margin: .5em;
+    margin: .3em;
+    font-size: 1em;
+    text-align: center;
 }
 
 .movie-list-container{
@@ -47,7 +53,7 @@
 
 // base stylings for the movies on the search/view all pages
 .view-all-movie-container{
-    margin-top: 2em;
+    margin-top: 3em !important;
 }
 
 // base stylings for buttons
@@ -67,6 +73,7 @@
 
 .pagination-buttons{
     margin-right: 1em;
+    cursor: pointer;
 }
 
 .next{
@@ -78,7 +85,7 @@
   background-size: cover !important;
   background-position: center !important;
   width: 100%;
-  height: 60vh;
+  height: 50vh;
   background-repeat: no-repeat;
   position: relative;
   animation: animateHeroimage 1s;

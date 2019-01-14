@@ -29,11 +29,21 @@ class Actor extends Component {
 
     }
     render() {
-        console.log(this.state.actorMovieCredits)
-        const actorImage = !this.state.actor ? <p>Image Loading...</p> :
+        // if this.state.actorMovieCredits has data, check if the path to the poster is not null and render the image from the API. Otherwise, render the 'no image' poster. If there's no data in state, display a loading message.
+        const actorImage = this.state.actor ?
             <div className="actor-image-container">
                 <img className="actor-image" src={`${IMAGE_BASE_URL}w300/${this.state.actor.profile_path}`} alt="Actor" />
             </div>
+            :
+            <div className="actor-image-container">
+                <img className="actor-image" src={no_image_poster} alt="Actor" />
+            </div>
+
+
+        // const actorImage = !this.state.actor ? <p>Image Loading...</p> :
+        //     <div className="actor-image-container">
+        //         <img className="actor-image" src={`${IMAGE_BASE_URL}w300/${this.state.actor.profile_path}`} alt="Actor" />
+        //     </div>
 
         const actorDetails = !this.state.actor ? <p>Actor details loading...</p> : <div className="actor-info-container">
             <div className="actor-info-text wrapper">

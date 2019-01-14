@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { IMAGE_BASE_URL } from '../../config';
 import '../../globalStylings.scss';
 import './nowPlayingMovieList.scss';
@@ -16,11 +16,11 @@ const NowPlayingMovieList = (props) => {
                 :
                 props.movies.map(function (movie) {
                     return (
-                        <div key={movie.id}>
-                            <NavLink className="link" to={`/movie/${movie.id}`}>
+                        <div className="movie" key={movie.id}>
+                            <Link className="link" to={`/movie/${movie.id}`}>
                                 <img className="movie-poster" src={`${IMAGE_BASE_URL}w154/${movie.poster_path}`} alt="" />
                                 <h5 className="movie-title">{movie.title}</h5>
-                            </NavLink>
+                            </Link>
                         </div>
                     )
                 })

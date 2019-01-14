@@ -1,5 +1,6 @@
 import React from 'react';
 import { IMAGE_BASE_URL } from '../../config';
+import { Link } from 'react-router-dom';
 import './HeroImage.scss'
 import '../../globalStylings.scss';
 
@@ -20,7 +21,9 @@ const HeroImage = (props) => {
                     <div className="wrapper hero-movie-text-container">
                         <div className="hero-movie-text">
                             <h4>Today's Top Trending Movie</h4>
-                            <h1 className="hero-movie-header">{props.heroImageInfo.results[0].original_title}</h1>
+                            <Link className="link" to={`/movie/${props.heroImageInfo.results[0].id}`}>
+                                <h1 className="hero-movie-header">{props.heroImageInfo.results[0].original_title}</h1>
+                            </Link>
                         </div>
                     </div>
                 </div>}

@@ -29,7 +29,6 @@ class Movie extends Component {
     }
 
     render() {
-        console.log(this.state.movie)
         const backdrop = !this.state.movie.backdrop_path ? <p>Image Loading...</p> :
             <div className="hero-image-container"
                 style={{
@@ -77,7 +76,7 @@ class Movie extends Component {
         // retrieve and return the details for the movie if the movie data has been placed into state
         const movieDetails = !this.state.movie ? <p>Movie Details Loading... </p> : <div className="movie-text-container">
             <div className="movie-text">
-                <h1 className="movie-title">{this.state.movie.original_title}</h1>
+                <h1 className="movie-title-header">{this.state.movie.original_title}</h1>
                 <p>Release Date: {this.state.movie.release_date}</p>
                 <p>Rating: {this.state.movie.vote_average}</p>
                 <p>Genre(s):</p>
@@ -91,7 +90,7 @@ class Movie extends Component {
             <div className="movie-container">
                 {backdrop}
                 {movieDetails}
-                <div className="actor-list-container">
+                <div className="actor-list-container wrapper">
                     {actorDetails}
                 </div>
             </div>

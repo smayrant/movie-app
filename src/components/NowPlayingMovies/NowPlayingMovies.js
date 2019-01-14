@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { API_KEY, API_URL, IMAGE_BASE_URL } from '../../config';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import no_image_poster from '../../images/no_image.jpg';
 import '../../globalStylings.scss';
 
 class NowPlayingMovies extends Component {
@@ -45,28 +46,32 @@ class NowPlayingMovies extends Component {
         }
     }
     render() {
+        // if this.state.movies has data, check if the path to the poster is not null and render the image from the API. Otherwise, render the 'no image' poster. If there's no data in state, display a loading message.
+        const NowPlayingMovies = this.state.movies ? this.state.movies.map(function (movie) {
+            if (movie.poster_path) {
+                return (
+                    <Link to={`/movie/${movie.id}`} key={movie.id} className="link movie">
+                        <img className="movie-poster" src={`${IMAGE_BASE_URL}w154/${movie.poster_path}`} alt="Movie Poster" />
+                        <h5 className="movie-title">{movie.title}</h5>
+                    </Link>
+                )
+            }
+            else {
+                return (
+                    <Link to={`/actor/${movie.id}`} key={movie.id} className="link movie">
+                        <img className="movie-poster no-image-poster" src={no_image_poster} alt="Movie poster" />
+                        <h5 className="movie-title">{movie.title}</h5>
+                    </Link>
+                )
+            }
+        }) : <p>Movies Loading...</p>
+
         return (
             <div className="view-all-movie-container">
                 <h3 className="page-heading">movies now playing in theaters</h3>
                 <hr />
-                <div className="movie-list-container">
-                    {/* If there's no movie data state, display a loading message, otherwise, display the movies */}
-                    {!this.state.movies ?
-                        <div>
-                            Movies loading...
-                        </div>
-                        :
-                        this.state.movies.map(function (movie) {
-                            return (
-                                <div key={movie.id}>
-                                    <NavLink className="link" to={`/movie/${movie.id}`}>
-                                        <img className="movie-poster" src={`${IMAGE_BASE_URL}w154/${movie.poster_path}`} alt="movie poster" />
-                                        <h5 className="movie-title">{movie.title}</h5>
-                                    </NavLink>
-                                </div>
-                            )
-                        })
-                    }
+                <div className="movie-list-container wrapper">
+                    {NowPlayingMovies}
                 </div>
                 <div className="pagination-buttons-container">
                     <button className="button pagination-button" onClick={this.prevPage}>Previous</button>{' '}

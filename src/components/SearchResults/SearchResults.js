@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { API_URL, API_KEY, IMAGE_BASE_URL } from '../../config';
 import { Link } from 'react-router-dom';
+import no_image_poster from '../../images/no_image.jpg';
 import '../../globalStylings.scss';
+import { animateScroll as scroll } from "react-scroll";
 
 class SearchResults extends Component {
     state = {
@@ -27,12 +29,17 @@ class SearchResults extends Component {
         this.fetchMovies()
     }
 
+    scrollToTop = () => {
+        scroll.scrollToTop();
+    };
+
     nextPage = () => {
         let { page_num } = this.state;
         if (this.state.movies && this.state.page_num <= this.state.total_pages) {
             this.setState({
                 page_num: page_num += 1
             }, () => this.fetchMovies())
+            this.scrollToTop()
         }
     }
 
@@ -41,28 +48,39 @@ class SearchResults extends Component {
         if (this.state.movies && this.state.page_num > 1) {
             this.setState({
                 page_num: page_num -= 1
-            }, () => this.fetchMovies())
+            })
+            this.scrollToTop()
         }
     }
 
     render() {
-        // If the movies from the API aren't yet in state, display a loading message, otherwise, render the movies to the page
-        const renderMovies = !this.state.movies ? <div> Movies loading...</div> :
-            this.state.movies.map(function (movie) {
+
+        // if this.state.movies has data, check if the path to the poster is not null and render the image from the API. Otherwise, render the 'no image' poster. If there's no data in state, display a loading message.
+        const searchedMovies = this.state.movies ? this.state.movies.map(function (movie) {
+            if (movie.poster_path) {
                 return (
-                    <Link className="link" key={movie.id} to={`/movie/${movie.id}`}>
+                    <Link to={`/movie/${movie.id}`} key={movie.id} className="link movie">
                         <img className="movie-poster" src={`${IMAGE_BASE_URL}w154/${movie.poster_path}`} alt="Movie Poster" />
                         <h5 className="movie-title">{movie.title}</h5>
                     </Link>
                 )
-            })
+            }
+            else {
+                return (
+                    <Link to={`/actor/${movie.id}`} key={movie.id} className="link movie">
+                        <img className="movie-poster no-image-poster" src={no_image_poster} alt="Movie poster" />
+                        <h5 className="movie-title">{movie.title}</h5>
+                    </Link>
+                )
+            }
+        }) : <p>Movies Loading...</p>
 
         return (
             <div>
-                <h3 className="page-heading">Search Results For {this.query}</h3>
+                <h3 className="page-heading">Search Results For: {this.query}</h3>
                 <hr />
-                <div className="movie-list-container view-all-movie-container">
-                    {renderMovies}
+                <div className="movie-list-container view-all-movie-container wrapper">
+                    {searchedMovies}
                 </div>
                 <div className="pagination-buttons-container">
                     <button className="button pagination-button" onClick={this.prevPage}>Previous</button>{' '}
