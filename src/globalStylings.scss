@@ -2,6 +2,15 @@
 .page-heading{
     text-transform: capitalize;
     text-align: center;
+    font-size: 1.75em;
+    font-weight: 500;
+    @media screen and(min-width: 740px){
+        font-size: 2em;
+    }
+
+    @media screen and(min-width: 992px){
+        font-size: 2.5em;
+    }
 }
 
 // global wrapper
@@ -42,6 +51,10 @@
     margin: .3em;
     font-size: 1em;
     text-align: center;
+    font-weight: 600;
+    @media screen and (min-width: 600px){
+    font-size: 1.2em;
+    }
 }
 
 .movie-list-container{
@@ -49,11 +62,18 @@
     flex-direction: row !important;
     flex-wrap: wrap;
     justify-content: center;
+    margin: 1em auto !important;
 }
 
-// base stylings for the movies on the search/view all pages
-.view-all-movie-container{
-    margin-top: 3em !important;
+.movie-title-header{
+    @media screen and (min-width: 600px){
+    font-size: 2.7em;
+    }
+}
+
+// movie details stylings for the movie component
+.movie-details-container{
+    font-size: 1.5em;
 }
 
 // base stylings for buttons
@@ -89,6 +109,17 @@
   background-repeat: no-repeat;
   position: relative;
   animation: animateHeroimage 1s;
+  @media screen and (min-width: 600px){
+    height: 60vh;
+    }
+
+  @media screen and (min-width: 740px){
+    height: 67vh;
+    }
+
+  @media screen and (min-width: 992px){
+    height: 72vh;
+    }
 }
 
 @keyframes animateHeroimage {
@@ -98,30 +129,4 @@
   to {
       opacity:1;
   }
-}
-
-.page-enter {
-  opacity: 0.01;
-}
-.page-enter-active {
-  opacity: 1;
-  transition: opacity 500ms ease-in;
-}
-.page-exit {
-  opacity: 1;
-}
-.page-exit-active {
-  opacity: 0.01;
-  transition: opacity 500ms ease-in;
-}
-
-.page {
-  height: 100vh;
-  padding: calc(15% + 1.5em) 5% 5%;
-  overflow-y: auto;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  -webkit-overflow-scrolling: touch;
-  transition: transform 1s ease-in-out;
 }

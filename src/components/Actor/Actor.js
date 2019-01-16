@@ -25,8 +25,6 @@ class Actor extends Component {
             .then(data => this.setState({
                 actorMovieCredits: data.cast.slice(0, 15)
             }))
-
-
     }
     render() {
         // if this.state.actorMovieCredits has data, check if the path to the poster is not null and render the image from the API. Otherwise, render the 'no image' poster. If there's no data in state, display a loading message.
@@ -47,11 +45,12 @@ class Actor extends Component {
 
         const actorDetails = !this.state.actor ? <p>Actor details loading...</p> : <div className="actor-info-container">
             <div className="actor-info-text wrapper">
-
-                <h1>{this.state.actor.name}</h1>
-                <h4>Birth date: {this.state.actor.birthday}</h4>
-                <h4>Place of birth: {this.state.actor.place_of_birth}</h4>
-                <p>{this.state.actor.biography}</p>
+                <h1 className="actor-name-heading">{this.state.actor.name}</h1>
+                <div className="bottom-actor-info-container">
+                    <h4>Birth date: {this.state.actor.birthday}</h4>
+                    <h4>Place of birth: {this.state.actor.place_of_birth}</h4>
+                    <p>{this.state.actor.biography}</p>
+                </div>
             </div>
         </div>
 

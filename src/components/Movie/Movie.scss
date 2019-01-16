@@ -45,6 +45,7 @@
     flex-wrap: wrap;
     justify-content: center;
     margin-bottom: 2em;
+    margin-top: 2em !important;
 }
 
 .actor-poster{
@@ -58,4 +59,9 @@
 
 .character-text{
     max-width: 150px;
+}
+
+.no-image-poster{
+  width: 154px;
+  height: auto;
 }

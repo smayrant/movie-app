@@ -2,6 +2,9 @@ React Movie app that retrieves data from the Movie DB API and displays the movie
 
 Technologies used:
 
-React
-React Router
+React,
+React Router,
 SASS
+
+Smooth scrolling done by react-scroll
+Route animations done by React Transition Group

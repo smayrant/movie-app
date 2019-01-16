@@ -77,12 +77,14 @@ class Movie extends Component {
         const movieDetails = !this.state.movie ? <p>Movie Details Loading... </p> : <div className="movie-text-container">
             <div className="movie-text">
                 <h1 className="movie-title-header">{this.state.movie.original_title}</h1>
-                <p>Release Date: {this.state.movie.release_date}</p>
-                <p>Rating: {this.state.movie.vote_average}</p>
-                <p>Genre(s):</p>
-                {genre}
-                <p className="summary-title">Summary:</p>
-                <p className="summary-text">{this.state.movie.overview}</p>
+                <div className="movie-details-container">
+                    <p>Release Date: {this.state.movie.release_date}</p>
+                    <p>Rating: {this.state.movie.vote_average}</p>
+                    <p>Genre(s):</p>
+                    {genre}
+                    <p className="summary-title">Summary:</p>
+                    <p className="summary-text">{this.state.movie.overview}</p>
+                </div>
             </div>
         </div>
 

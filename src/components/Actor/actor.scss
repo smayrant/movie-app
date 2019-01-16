@@ -22,7 +22,14 @@
   text-align: center;
 }
 
-.no-image-poster{
-  width: 154px;
-  height: auto;
+.actor-name-heading{
+  @media screen and (min-width: 992px) {
+    font-size: 3em;
+  }
+}
+
+.bottom-actor-info-container{
+  @media screen and (min-width: 992px) {
+    font-size: 1.3em;
+  }
 }

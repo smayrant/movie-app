@@ -1,15 +1,23 @@
- .fade-enter {
-        opacity: 0.01;
+    // Styles for the React Transition Group animations
+    .fade-enter {
+        opacity: 0;
+        z-index: 1;
     }
     .fade-enter.fade-enter-active {
         opacity: 1;
-        transition: opacity 300ms ease-in;
+        transition: opacity 500ms linear 500ms;
     }
     .fade-exit {
         opacity: 1;
     }
       
     .fade-exit.fade-exit-active {
-        opacity: 0.01;
-        transition: opacity 300ms ease-in;
+        opacity: 0;
+        transition: opacity 500ms linear 500ms;
     }
+
+    .fade-exit-done{
+        opacity: 0;
+    }
+
+    
