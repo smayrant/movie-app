@@ -31,6 +31,7 @@
     display: flex;
     justify-content: center;
     font-size: 1.2em;
+    font-weight: 600
 }
 
 .link{
@@ -51,10 +52,7 @@
     margin: .3em;
     font-size: 1em;
     text-align: center;
-    font-weight: 600;
-    @media screen and (min-width: 600px){
-    font-size: 1.2em;
-    }
+    font-weight: 400;
 }
 
 .movie-list-container{
@@ -66,6 +64,7 @@
 }
 
 .movie-title-header{
+    text-align: center;
     @media screen and (min-width: 600px){
     font-size: 2.7em;
     }
@@ -73,7 +72,11 @@
 
 // movie details stylings for the movie component
 .movie-details-container{
-    font-size: 1.5em;
+    font-size: 1.2em;
+}
+
+.bold-title{
+    font-weight: 700;
 }
 
 // base stylings for buttons

@@ -1,6 +1,15 @@
 .movie-container{
     margin-top: 0;
 }
+
+.movie-text{
+    margin: 0 !important;
+}
+
+.movie-details-wrap{
+    background: #1c1c1c;
+}
+
 .movie-backdrop-container {
    background-size: 100%, cover !important;
   background-position: center !important;
@@ -33,6 +42,12 @@
 .movie-title-header{
     margin-top: 0;
     text-align: center;
+}
+
+.cast-header{
+    text-align: center;
+    margin-top: 1.5em;
+    font-size: 1.9em;
 }
 
 .actor-details-container{

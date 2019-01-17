@@ -1,18 +1,19 @@
 import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { CSSTransition, TransitionGroup, } from 'react-transition-group';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Home from '../Home/Home';
 import Movie from '../Movie/Movie';
 import Actor from '../Actor/Actor';
 import SearchResults from '../SearchResults/SearchResults';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import NowPlayingMovies from '../NowPlayingMovies/NowPlayingMovies';
 import PopularMovies from '../PopularMovies/PopularMovies';
 import TopRatedMovies from '../TopRatedMovies/TopRatedMovies';
 import UpcomingMovies from '../UpcomingMovies/UpcomingMovies';
-import { CSSTransition, TransitionGroup, } from 'react-transition-group';
 import ScrollToTop from '../ScrollToTop/ScrollToTop';
 import './App.scss';
+import '../../index.scss';
 
 
 const App = () => {

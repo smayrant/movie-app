@@ -1,7 +1,7 @@
 import React from 'react';
 import './header.scss';
 import { Link } from 'react-router-dom';
-import rmdb_logo from '../../images/reactMovie_logo.png';
+import rmdb_logo from '../../images/reactMovie_logo copy.png';
 import popcorn_logo from '../../images/popcorn.png';
 import '../../globalStylings.scss';
 

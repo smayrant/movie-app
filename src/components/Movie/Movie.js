@@ -74,15 +74,15 @@ class Movie extends Component {
         }) : <p>Actors Loading...</p>
 
         // retrieve and return the details for the movie if the movie data has been placed into state
-        const movieDetails = !this.state.movie ? <p>Movie Details Loading... </p> : <div className="movie-text-container">
-            <div className="movie-text">
+        const movieDetails = !this.state.movie ? <p>Movie Details Loading... </p> : <div className="wrapper movie-text-container">
+            <div className="wrapper movie-text">
                 <h1 className="movie-title-header">{this.state.movie.original_title}</h1>
                 <div className="movie-details-container">
-                    <p>Release Date: {this.state.movie.release_date}</p>
-                    <p>Rating: {this.state.movie.vote_average}</p>
-                    <p>Genre(s):</p>
+                    <p><span className="bold-title">Release Date:</span> {this.state.movie.release_date}</p>
+                    <p><span className="bold-title">Rating:</span> {this.state.movie.vote_average}</p>
+                    <p><span className="bold-title">Genre(s):</span></p>
                     {genre}
-                    <p className="summary-title">Summary:</p>
+                    <p className="summary-title bold-title">Summary:</p>
                     <p className="summary-text">{this.state.movie.overview}</p>
                 </div>
             </div>
@@ -91,7 +91,10 @@ class Movie extends Component {
         return (
             <div className="movie-container">
                 {backdrop}
-                {movieDetails}
+                <div className="movie-details-wrap">
+                    {movieDetails}
+                </div>
+                <div className="cast-header">Cast</div>
                 <div className="actor-list-container wrapper">
                     {actorDetails}
                 </div>
