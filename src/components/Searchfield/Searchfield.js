@@ -4,7 +4,6 @@ import '../../globalStylings.scss';
 import './Searchfield.scss';
 
 class Searchfield extends Component {
-
     state = {
         search: ''
     }

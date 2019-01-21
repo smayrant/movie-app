@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { API_KEY, API_URL, IMAGE_BASE_URL } from '../../config';
 import { Link } from 'react-router-dom';
-import no_image_poster from '../../images/no_image.jpg';
 import { animateScroll as scroll } from "react-scroll";
+import no_image_poster from '../../images/no_image.jpg';
 import '../../globalStylings.scss';
 
 class NowPlayingMovies extends Component {
@@ -29,10 +29,12 @@ class NowPlayingMovies extends Component {
         this.fetchMovies()
     }
 
+    // smooth scroll to the top function
     scrollToTop = () => {
         scroll.scrollToTop();
     };
 
+    // go to the next page and run the scroll to top function 
     nextPage = () => {
         let { page_num } = this.state;
         if (this.state.movies && this.state.page_num <= this.state.total_pages) {
@@ -43,6 +45,7 @@ class NowPlayingMovies extends Component {
         }
     }
 
+    // go to the prev page and run the scroll to top function 
     prevPage = () => {
         let { page_num } = this.state;
         if (this.state.movies && this.state.page_num > 1) {

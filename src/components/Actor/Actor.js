@@ -27,8 +27,8 @@ class Actor extends Component {
             }))
     }
     render() {
-        // if this.state.actorMovieCredits has data, check if the path to the poster is not null and render the image from the API. Otherwise, render the 'no image' poster. If there's no data in state, display a loading message.
-        const actorImage = this.state.actor ?
+        // if there's a profile path to the image, render the actor's image. Otherwise, render the 'no image' poster. 
+        const actorImage = this.state.actor.profile_path ?
             <div className="actor-image-container">
                 <img className="actor-image" src={`${IMAGE_BASE_URL}w300/${this.state.actor.profile_path}`} alt="Actor" />
             </div>
@@ -37,19 +37,13 @@ class Actor extends Component {
                 <img className="actor-image" src={no_image_poster} alt="Actor" />
             </div>
 
-
-        // const actorImage = !this.state.actor ? <p>Image Loading...</p> :
-        //     <div className="actor-image-container">
-        //         <img className="actor-image" src={`${IMAGE_BASE_URL}w300/${this.state.actor.profile_path}`} alt="Actor" />
-        //     </div>
-
         const actorDetails = !this.state.actor ? <p>Actor details loading...</p> : <div className="actor-info-container">
             <div className="actor-info-text wrapper">
                 <h1 className="actor-name-heading">{this.state.actor.name}</h1>
                 <div className="bottom-actor-info-container">
-                    <h4>Birth date: {this.state.actor.birthday}</h4>
-                    <h4>Place of birth: {this.state.actor.place_of_birth}</h4>
-                    <p>{this.state.actor.biography}</p>
+                    <p><span className="bold-title">Birth date:</span> {this.state.actor.birthday}</p>
+                    <p><span className="bold-title">Place of birth: </span>{this.state.actor.place_of_birth}</p>
+                    <p><span className="bold-title">Biography:</span> {this.state.actor.biography}</p>
                 </div>
             </div>
         </div>
@@ -58,7 +52,7 @@ class Actor extends Component {
         const image = this.state.actorMovieCredits ? this.state.actorMovieCredits.map(function (credit) {
             if (credit.poster_path) {
                 return (
-                    <Link to={`/movie/${credit.id}`} key={credit.id} className="movie-credit-details-container link">
+                    <Link to={`/movie/${credit.id}`} key={credit.id} className="movie movie-credit-details-container link">
                         <img className="movie-poster" src={`${IMAGE_BASE_URL}w154${credit.poster_path}`} alt="Movie poster" />
                         <h5 className="movie-title">{credit.title}</h5>
                     </Link>
@@ -66,7 +60,7 @@ class Actor extends Component {
             }
             else {
                 return (
-                    <Link to={`/movie/${credit.id}`} key={credit.id} className="movie-credit-details-container link">
+                    <Link to={`/movie/${credit.id}`} key={credit.id} className="movie movie-credit-details-container link">
                         <img className="movie-poster no-image-poster" src={no_image_poster} alt="Movie poster" />
                         <h5 className="movie-title">{credit.title}</h5>
                     </Link>

@@ -1,6 +1,7 @@
 // stylings for the headings of the pages
 .page-heading{
     text-transform: capitalize;
+    color: #333;
     text-align: center;
     font-size: 1.75em;
     font-weight: 500;
@@ -41,6 +42,9 @@
 // stylings for the list of movies returned from the API on all pages
 .movie{
     margin-bottom: 1.5em;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    margin: .5em;
+    border-radius: 5px;
 }
 
 .movie-poster{
@@ -53,6 +57,8 @@
     font-size: 1em;
     text-align: center;
     font-weight: 400;
+    color: #333;
+    max-width: 154px;
 }
 
 .movie-list-container{
@@ -70,9 +76,16 @@
     }
 }
 
+.view-all-movie-container{
+    margin-bottom: 2em;
+}
+
 // movie details stylings for the movie component
 .movie-details-container{
+    font-size: 1em;
+    @media screen and (min-width: 992px){
     font-size: 1.2em;
+    }
 }
 
 .bold-title{
@@ -106,23 +119,35 @@
 // stylings for the hero images of the movies
 .hero-image-container {
   background-size: cover !important;
-  background-position: center !important;
+  background-position: center center !important;
   width: 100%;
-  height: 50vh;
+  height: 40vh;
   background-repeat: no-repeat;
   position: relative;
   animation: animateHeroimage 1s;
   @media screen and (min-width: 600px){
-    height: 60vh;
+    height: 300px;
     }
 
   @media screen and (min-width: 740px){
-    height: 67vh;
+    height: 400px;
     }
 
   @media screen and (min-width: 992px){
-    height: 72vh;
+    height: 500px;
     }
+
+  @media screen and (min-width: 1200px){
+    height: 700px;
+    }
+
+    @media screen and (min-width: 1700px){
+    height: 90vh;
+    }
+
+    // @media screen and (min-width: 1900px){
+    // height: 100vh;
+    // }
 }
 
 @keyframes animateHeroimage {
@@ -132,4 +157,9 @@
   to {
       opacity:1;
   }
+}
+
+// styling for links
+.green-link{
+    color: #01bc65;
 }

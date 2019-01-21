@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { API_KEY, API_URL, IMAGE_BASE_URL } from '../../config';
 import { Link } from 'react-router-dom';
-import no_image_poster from '../../images/no_image.jpg';
 import { animateScroll as scroll } from "react-scroll";
+import no_image_poster from '../../images/no_image.jpg';
 import '../../globalStylings.scss';
 
 class TopRatedMovies extends Component {

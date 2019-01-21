@@ -71,22 +71,22 @@ class Home extends Component {
                 <HeroImage heroImageInfo={this.state.heroImageInfo} />
                 <SearchField />
                 <div className="home-movie-container now-playing-movie-container">
-                    <h3 className="movie-header">Now Playing in Theaters - <Link className="link" to="/nowPlaying">View All</Link></h3>
+                    <h3 className="movie-header">Now Playing in Theaters - <Link className="green-link link" to="/nowPlaying">View All</Link></h3>
                     <NowPlayingMovieList movies={this.state.nowPlayingMovies} />
                     <br />
                 </div>
                 <div className="home-movie-container">
-                    <h3 className="movie-header">Most Popular - <Link className="link" to="/popular">View All</Link></h3>
+                    <h3 className="movie-header">Most Popular - <Link className="green-link link" to="/popular">View All</Link></h3>
                     <PopularMovieList movies={this.state.popularMovies} />
                     <hr />
                 </div>
                 <div className="home-movie-container">
-                    <h3 className="movie-header">Top Rated - <Link className="link" to="/topRated">View All</Link></h3>
+                    <h3 className="movie-header">Top Rated - <Link className="green-link link" to="/topRated">View All</Link></h3>
                     <TopRatedMovieList movies={this.state.topRatedMovies} />
                     <hr />
                 </div>
                 <div className="home-movie-container">
-                    <h3 className="movie-header">Upcoming - <Link className="link" to="/upcoming">View All</Link></h3>
+                    <h3 className="movie-header">Upcoming - <Link className="green-link link" to="/upcoming">View All</Link></h3>
                     <UpcomingMoviesList movies={this.state.upcomingMovies} />
                     <hr />
                 </div>

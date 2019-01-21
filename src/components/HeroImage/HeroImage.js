@@ -20,8 +20,8 @@ const HeroImage = (props) => {
                 >
                     <div className="wrapper hero-movie-text-container">
                         <div className="hero-movie-text">
-                            <h4>Today's Top Trending Movie</h4>
                             <Link className="link" to={`/movie/${props.heroImageInfo.results[0].id}`}>
+                                <h4 className="green-link trending-link">Today's Top Trending Movie</h4>
                                 <h1 className="hero-movie-header">{props.heroImageInfo.results[0].original_title}</h1>
                             </Link>
                         </div>

@@ -11,10 +11,22 @@
 .hero-movie-header{
     color: #fff;
     margin: 0;
+    @media screen and (min-width: 1700px){
+        font-size: 2.5em;
+    }
 }
 
 .hero-movie-text{
     position: absolute;
     bottom: 0;
     padding: 1.5em;
+}
+
+.trending-link{
+    @media screen and (min-width: 740px){
+        font-size: 1.2em;
+    }
+    @media screen and (min-width: 1700px){
+        font-size: 1.5em;
+    }
 }

@@ -1,3 +1,18 @@
+.no-backdrop{
+    padding: 2em;
+}
+
+.no-image-movie-poster{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 67%;
+  height: auto;
+  max-width: 300px;
+  border-radius: 4px;
+  padding: 1em;
+}
+
 .movie-container{
     margin-top: 0;
 }
@@ -48,6 +63,7 @@
     text-align: center;
     margin-top: 1.5em;
     font-size: 1.9em;
+    color: #333;
 }
 
 .actor-details-container{
@@ -70,10 +86,13 @@
 
 .individual-actor-details-container{
     text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    margin: .5em;
 }
 
 .character-text{
     max-width: 150px;
+    color: #333;
 }
 
 .no-image-poster{

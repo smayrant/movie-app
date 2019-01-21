@@ -2,7 +2,6 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { IMAGE_BASE_URL } from '../../config';
 import '../../globalStylings.scss';
-import './upcomingMoviesList.scss';
 
 const UpcomingMovieList = (props) => {
     return (

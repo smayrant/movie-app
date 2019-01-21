@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { IMAGE_BASE_URL } from '../../config';
 import '../../globalStylings.scss';
-import './nowPlayingMovieList.scss';
+
 
 
 const NowPlayingMovieList = (props) => {

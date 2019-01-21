@@ -29,7 +29,9 @@ class Movie extends Component {
     }
 
     render() {
-        const backdrop = !this.state.movie.backdrop_path ? <p>Image Loading...</p> :
+        const backdrop = !this.state.movie.backdrop_path ? <div>
+            <img className="no-image-movie-poster" src={no_image_poster} alt="Actor poster" />
+        </div> :
             <div className="hero-image-container"
                 style={{
                     background:
@@ -82,8 +84,7 @@ class Movie extends Component {
                     <p><span className="bold-title">Rating:</span> {this.state.movie.vote_average}</p>
                     <p><span className="bold-title">Genre(s):</span></p>
                     {genre}
-                    <p className="summary-title bold-title">Summary:</p>
-                    <p className="summary-text">{this.state.movie.overview}</p>
+                    <p className="summary-text"><span className="bold-title">Summary: </span>{this.state.movie.overview}</p>
                 </div>
             </div>
         </div>

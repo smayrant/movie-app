@@ -67,7 +67,7 @@ class SearchResults extends Component {
             }
             else {
                 return (
-                    <Link to={`/actor/${movie.id}`} key={movie.id} className="link movie">
+                    <Link to={`/movie/${movie.id}`} key={movie.id} className="link movie">
                         <img className="movie-poster no-image-poster" src={no_image_poster} alt="Movie poster" />
                         <h5 className="movie-title">{movie.title}</h5>
                     </Link>
