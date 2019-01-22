@@ -1,12 +1,25 @@
+   // styling to ensure the responsive footer stays at the bottom of the page    
+   .App{
+       min-height: 100vh;
+       display: flex;
+       flex-direction: column;
+   }
+   
+   .main-content-container{
+       flex: 1 !important;
+   }
+   
    // Styles for the React Transition Group animations
     .fade-enter {
         opacity: 0;
         z-index: 1;
     }
+
     .fade-enter.fade-enter-active {
         opacity: 1;
         transition: opacity 500ms linear 500ms;
     }
+
     .fade-exit {
         opacity: 1;
     }

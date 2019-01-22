@@ -1,8 +1,10 @@
 .footer-container{
     background: #1c1c1c;
     color: #03D474;
-    margin-top: 2em;
+    // margin-top: 10em;
     padding-bottom: .2em;
+    flex-shrink: 0 !important;
+    margin-top: auto !important;
 }
 
 .footer-text-container{

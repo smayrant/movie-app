@@ -13,7 +13,7 @@ const Footer = () => {
     }
 
     return (
-        <div className="footer-container">
+        <footer className="footer-container">
             <div className="footer-text-container">
                 <div className="footer-logo-container">
                     <img className="tmdb-logo" src={tmdb_logo} alt="TMDB Logo" />
@@ -45,7 +45,7 @@ const Footer = () => {
                     <p className="footer-attribution">Code and design by Sheldrick Mayrant</p>
                 </div>
             </div>
-        </div>
+        </footer>
     )
 }
 

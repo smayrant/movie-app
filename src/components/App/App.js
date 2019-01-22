@@ -21,7 +21,7 @@ const App = () => {
     <BrowserRouter>
       <div className="App">
         <Header />
-        <ScrollToTop>
+        <ScrollToTop className="main-content-container">
           <Route render={({ location }) => (
             <TransitionGroup className="transition-group">
               <CSSTransition key={location.key} timeout={1000} classNames={'fade'}>
